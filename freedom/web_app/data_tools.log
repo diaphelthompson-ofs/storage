@@ -1,0 +1,12 @@
+2013-08-23 17:25:45 requests.packages.urllib3.connectionpool INFO     Starting new HTTPS connection (1): jira.lifealike.com
+2013-08-23 17:25:56 requests.packages.urllib3.connectionpool DEBUG    "GET /rest/api/2/search?fields=customfield_12042&jql=issuetype+%3D+%22booking%22+and+%22Booking+reference%22+~C9668E64&startAt=0&maxResults=100 HTTP/1.1" 200 None
+2013-08-23 17:25:57 requests.packages.urllib3.connectionpool DEBUG    "GET /rest/api/2/search?fields=customfield_12042&jql=issuetype+%3D+%22booking%22+and+%22Booking+reference%22+~C9668E64&startAt=1&maxResults=100 HTTP/1.1" 200 None
+2013-08-23 17:25:57 werkzeug     INFO     10.0.2.2 - - [23/Aug/2013 17:25:57] "GET /apps/voip HTTP/1.1" 200 -
+2013-08-23 18:45:01 werkzeug     INFO     10.0.2.2 - - [23/Aug/2013 18:45:01] "GET /apps/prep_team_notifications HTTP/1.1" 200 -
+2013-08-23 18:45:01 werkzeug     INFO     10.0.2.2 - - [23/Aug/2013 18:45:01] "GET /favicon.ico HTTP/1.1" 404 -
+2013-08-23 18:45:05 requests.packages.urllib3.connectionpool INFO     Resetting dropped connection: jira.lifealike.com
+2013-08-23 18:45:07 requests.packages.urllib3.connectionpool DEBUG    "GET /rest/api/2/search?fields=customfield_12042&jql=issuetype+%3D+%22booking%22+and+%22Booking+reference%22+~C9668E64&startAt=0&maxResults=100 HTTP/1.1" 200 None
+2013-08-23 18:45:08 requests.packages.urllib3.connectionpool DEBUG    "GET /rest/api/2/search?fields=customfield_12042&jql=issuetype+%3D+%22booking%22+and+%22Booking+reference%22+~C9668E64&startAt=1&maxResults=100 HTTP/1.1" 200 None
+2013-08-23 18:45:08 werkzeug     INFO     10.0.2.2 - - [23/Aug/2013 18:45:08] "GET /apps/voip HTTP/1.1" 200 -
+2013-08-23 18:45:10 werkzeug     INFO     10.0.2.2 - - [23/Aug/2013 18:45:10] "GET /favicon.ico HTTP/1.1" 404 -
+2013-08-23 18:45:10 werkzeug     INFO     10.0.2.2 - - [23/Aug/2013 18:45:10] "GET /favicon.ico HTTP/1.1" 404 -

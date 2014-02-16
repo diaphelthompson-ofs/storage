@@ -1,0 +1,47 @@
+<html>
+<head>
+
+<style>
+body,html,iframe { width: 100%; height: 100%; margin: 0; border: 0; }
+
+#mainframe.normal
+{
+    opacity: 1.0;
+}
+#mainframe.faded
+{
+    opacity: 0.0;
+}
+#mainframe
+{
+        /* Firefox */
+        -moz-transition-property: opacity;
+        -moz-transition-duration: 1s;
+        /* WebKit */
+        -webkit-transition-property: opacity;
+        -webkit-transition-duration: 1s;
+        /* Standard */
+        transition-property: opacity;
+        transition-duration: 1s;
+}
+
+</style>
+
+<script language="javascript">
+function change()
+{
+    document.getElementById('mainframe').className="faded";
+    setTimeout(function()
+    {
+        document.getElementById('mainframe').src='/page2';
+        document.getElementById('mainframe').className="normal";
+    }, (2 * 100));
+}
+</script>
+</head>
+
+<body style="background-color:black;">
+<iframe id="mainframe" class="normal" src="/page1"></iframe>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='datepicker.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='prettify.css') }}">
+<script src="{{ url_for('static', filename='bootstrap-datepicker.js')}}"></script>
+<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+<title>JIRA Batch Uploader</title>
+
+    <style>
+        #demos section {
+            overflow: hidden;
+        }
+        .sortable {
+            width: 310px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .sortable.grid {
+            overflow: hidden;
+        }
+        .sortable li {
+            list-style: none;
+            border: 1px solid #CCC;
+            background: #F6F6F6;
+            color: #1C94C4;
+            margin: 5px;
+            padding: 5px;
+            height: 22px;
+        }
+        .sortable.grid li {
+            line-height: 80px;
+            float: left;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+        }
+        .handle {
+            cursor: move;
+        }
+        .sortable.connected {
+            width: 200px;
+            min-height: 100px;
+            float: left;
+        }
+        li.disabled {
+            opacity: 0.5;
+        }
+        li.highlight {
+            background: #FEE25F;
+        }
+        li.sortable-placeholder {
+            border: 1px dashed #CCC;
+            background: none;
+        }
+    </style>
+
+you are logged in as {{session['first_name']}} {{session['last_name']}}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='datepicker.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='prettify.css') }}">
+</head>
+<body>
+
+
+<section>
+        <h1>Connected Sortable Lists</h1>
+        <ul id="sortable3" class="connected sortable list">
+            <li>Item 1
+            <li>Item 2
+            <li>Item 3
+            <li>Item 4
+            <li>Item 5
+            <li>Item 6
+        </ul>
+        <ul id="sortable4" class="connected sortable list">
+            <li>Item 1
+            <li>Item 2
+            <li>Item 3
+            <li>Item 4
+            <li>Item 5
+            <li>Item 6
+        </ul>
+        <ul id="sortable5" class="connected sortable list">
+            <li class="highlight">Item 1
+            <li class="highlight">Item 2
+            <li class="highlight">Item 3
+            <li class="highlight">Item 4
+            <li class="highlight">Item 5
+            <li class="highlight">Item 6
+        </ul>
+    </section>
+
+ <form action="" method="post" name="upload_item" enctype="multipart/form-data">
+    <p>
+       Item Type<br>
+        <input type="text" name="item_type"><br>
+        <input type="hidden" name="user" value={{session['user_id']}}><br>
+    </p>
+    <p>
+        Name<br>
+        <input type="text" name="item_name"><br>
+    </p>
+    <p>
+        <input type=file name=file>
+        <input type="submit" value="upload" name="button"></p>
+    </form>
+
+<a href='/logout'>logout</a>
+
+<div class = "photos">
+</div>
+
+<script src="/static/jquery.sortable.js"></script>
+<script>
+    $('.sortable').sortable();
+</script>
+    <script>
+        $(function() {
+
+            $('#sortable3, #sortable4, #sortable5').sortable({
+                connectWith: '.connected'
+            });
+        });
+    </script>

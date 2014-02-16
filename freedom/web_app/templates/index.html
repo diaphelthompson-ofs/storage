@@ -1,0 +1,320 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='datepicker.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='prettify.css') }}">
+<script src="{{ url_for('static', filename='bootstrap-datepicker.js')}}"></script>
+<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+<script src="/static/jquery.sortable.js"></script>
+
+
+
+
+<title>Storable</title>
+
+<style type="text/css">
+section.center {
+    max-width: 150px;
+    margin: 100px auto;
+}
+span.clickMe {
+    font-size: 30px;
+}
+span.clickMe:hover {
+    cursor: pointer;
+    color: green;
+}
+section.hidden {
+    display: none;
+    position: fixed;
+}
+section article.popup {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background: #e3e3e3;
+    color: #222;
+    border: 1px solid #333;
+    border-radius: 3px;
+    padding: 5px 7px;
+    margin: 10% auto;
+}
+span.close {
+    text-transform: uppercase;
+    color: #222;
+}
+span.close:hover{
+    color: red;
+    cursor: pointer;
+}
+
+#demos section {
+    overflow: hidden;
+}
+.sortable {
+    width: 310px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.sortable.grid {
+    overflow: hidden;
+}
+.sortable li {
+    list-style: none;
+    border: 1px solid #CCC;
+    background: #F6F6F6;
+    color: #1C94C4;
+    margin: 5px;
+    padding: 5px;
+    height: 22px;
+}
+.sortable.grid li {
+    line-height: 80px;
+    float: left;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+}
+.handle {
+    cursor: move;
+}
+.sortable.connected {
+    width: 200px;
+    min-height: 100px;
+    float: left;
+}
+li.disabled {
+    opacity: 0.5;
+}
+li.highlight {
+    background: #FEE25F;
+}
+li.sortable-placeholder {
+    border: 1px dashed #CCC;
+    background: none;
+}
+.photos{
+
+}
+.items{
+    width:50%;
+    height:50%;
+    margin-left: 40% ;
+    margin-right: auto ;
+}
+.main{
+    width:70%;
+    margin-left: auto ;
+    margin-right: auto ;
+
+}
+.master{
+
+    height:100%;
+}
+.container{
+    width:20%;
+    height: 100%;
+    float: left;
+}
+
+.bgtrans{
+    background-color: transparent;
+}
+
+    </style>
+
+
+    <section class="hidden">
+        <article class="popup">
+            <span class="close">Close Me</span>
+
+    <div class="file_upload">
+        <form action="" method="post" name="upload_item" enctype="multipart/form-data">
+            <p>
+               Item Type<br>
+                <input type="text" name="item_type"><br>
+                <input type="hidden" name="user" value={{session['user_id']}}><br>
+            </p>
+            <p>
+                Name<br>
+                <input type="text" name="item_name"><br>
+            </p>
+                <p>
+                Collection<br>
+                <select name="collection">
+                <option value="none">Choose Later</option>
+                {% for collection in collections %}
+                <option value="{{ collection['collection_id'] }}">{{ collection['label'] }}</option>
+                {% endfor %}
+                </select>
+            </p>
+            <p>
+                <input type=file name=file>
+                <input type="submit" value="upload" name="button"></p>
+        </form>
+    </div>
+
+    <form action="" method="post" name="new_collection" enctype="multipart/form-data">
+        <p>
+           Item Type<br>
+            <input type="text" name="collection_label"><br>
+            <input type="submit" value="collection_upload" name="button"></p>
+        </form>
+            </article>
+        </section>
+
+<div class="master">
+    <div class="main">
+    you are logged in as {{session['first_name']}} {{session['last_name']}}
+
+
+        <a href='/logout'>logout</a>
+
+        <div>
+                
+            <span class="clickMe">
+            <img src="static/addition.png" width="7%">
+            </span>
+            <span class="clickMe">
+            <img src="static/minus_wood.png" width="10%">
+            </span>
+
+        </div>
+
+        <div class = "container">
+            {% for collection in files %}
+            <div class = "photos">
+                <table>
+                    <tr>
+                        <td>
+                            <h3><font color="#ffe4b5">
+                                {{ collection }}
+                            </h3>   
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="label bgtrans"><img src="static/crate.png" width="75%" onclick="show_items(this.id)" id='{{ collection }}'>
+                                <span class="add_to_collection">
+                                    <img src="static/add_symbol.png" width="10%">
+                                </span>
+                            </span>   
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            {% endfor %}
+        </div>
+
+        <div class = "items">
+            <table class = "table" id="items_table">
+                <thead>
+                    <tr>
+                        Item
+                    </th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="/static/jquery.sortable.js"></script>
+<script>
+    $('.sortable').sortable();
+</script>
+    <script>
+        $(function() {
+
+            $('#sortable3, #sortable4, #sortable5').sortable({
+                connectWith: '.connected'
+            });
+        });
+    </script>
+<script>
+    function newPopup(url) {
+    popupWindow = window.open(       
+    url,'popUpWindow','height=700,width=1000,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+    }
+
+</script>
+<script>
+function show_items(collection_name){
+    files = {{ files_json|safe }}
+    $('.items').empty()
+    for (collection in files){
+    var header = '<table class ="table table-hover table-condensed"><thead><tr><th>'+collection+'</th><th>name</th><th>location</th></tr></thead><tbody>'
+    var body = ""
+    for (item in files[collection]){
+        console.log(files[collection][item])
+
+        if (files[collection][item]["location"] == 'warehouse'){
+            item_where = 'success'
+        }
+        else{
+            item_where = 'warning'
+        }
+
+        body = body + '<tr class="'+item_where+'""><td><img src="'+files[collection][item]["picture_location"]+'" width="65%"></td><td>'+files[collection][item]["name"]+'</td><td>'+files[collection][item]["location"]+'</td></tr>'
+        }
+    var close = '</tbody></table>'
+    $('.items').append(header + body + close)
+    }
+}
+</script> 
+<script>
+    $(document).ready(function(){
+ 
+        $(function(){
+            $('span.clickMe').click(function(e){
+                var hiddenSection = $('section.hidden');
+                hiddenSection.fadeIn()
+                    // unhide section.hidden
+                    .css({ 'display':'block' })
+                    // set to full screen
+                    .css({ width: $(window).width() + 'px', height: $(window).height() + 'px' })
+                    .css({ top:($(window).height() - hiddenSection.height())/2 + 'px', 
+                        left:($(window).width() - hiddenSection.width())/2 + 'px' })
+                    // greyed out background
+                    .css({ 'background-color': 'rgba(0,0,0,0.5)' })
+                    .appendTo('body');
+                    // console.log($(window).width() + ' - ' + $(window).height());
+                    $('span.close').click(function(){ $(hiddenSection).fadeOut(); });
+            });
+        });
+ 
+    });
+</script>
+<script>
+/*function show_items(collection_name){
+    files = {{ files_json|safe }}
+    //$('.items').empty()
+    for (item in files[collection_name]){
+        console.log(files[collection_name][item])
+        
+var tableRef = document.getElementById('items_table').getElementsByTagName('tbody')[0];
+
+  // Insert a row in the table at row index 0
+  var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+  // Insert a cell in the row at index 0
+  var newCell  = newRow.insertCell(0);
+  // Append a text node to the cell
+  var newText  = '<div><img src="'+files[collection_name][item]["location"]+'" width="65%"></div>'
+  
+  newCell.innerHTML(newText);
+}
+}*/
+</script>
+

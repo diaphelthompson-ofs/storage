@@ -1,0 +1,49 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="author" content="Tom Harvey">
+
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.css') }}">
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='stomp.js')}}"></script>
+
+    <style type="text/css">
+      body {
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+
+      li {
+        border-bottom: 1px solid #ccc;
+        padding: 12px 0 6px;
+      }
+
+    </style>
+
+  </head>
+  <body>
+  	<hr>
+  	<div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <form method="POST" action="">
+	  			<div>
+	    			<label for="login">Login</label>
+	    			<input id="login" name="username" type="text" value="">
+	  			</div>
+	 			<div>
+				    <label for="password">Password</label>
+				    <input id="password" name="password" type="password" value="">
+				</div>
+	  			<input type="submit" value="Submit">
+			</form>
+          </div><!--/.well -->
+        </div><!--/span-->
+      </div><!--/row-->
+    </div>
+
+</body>
+</html>

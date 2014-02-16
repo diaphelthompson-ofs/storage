@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)http://www.clker.com/inc/svgedit/svg-editor.html?paramurl=/inc/clean.html?id=130610# -->
+<html><!-- removed for now, causes problems in Firefox: manifest="svg-editor.manifest" --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<link rel="icon" type="image/png" href="http://www.clker.com/inc/svgedit/images/logo.png">
+<link rel="stylesheet" href="jPicker-1.0.12.css" type="text/css">
+<link rel="stylesheet" href="jgraduate.css" type="text/css">
+<link rel="stylesheet" href="svg-editor.css" type="text/css">
+<link rel="stylesheet" href="JQuerySpinBtn.css" type="text/css">
+<link href="jquery-ui.css" rel="stylesheet" type="text/css">
+<!-- Release version of script tags: -->
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.hotkeys.min.js"></script>
+<script type="text/javascript" src="jquery.jgraduate.min.js"></script>
+<script type="text/javascript" src="jquery.svgicons.min.js"></script>
+<script type="text/javascript" src="jquery.bbq.min.js"></script>
+<script type="text/javascript" src="JQuerySpinBtn.min.js"></script>
+<script type="text/javascript" src="svgcanvas.min.js"></script>
+<script type="text/javascript" src="svg-editor.min.js"></script>
+<script type="text/javascript" src="locale.min.js"></script>
+
+<!-- See http://code.google.com/p/svg-edit/wiki/ConfigOptions for configuration options -->
+
+<!-- you can load extensions here -->
+<!-- <script type="text/javascript" src="extensions/ext-helloworld.js"></script> -->
+
+
+<!-- Development version of script tags: 
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="js-hotkeys/jquery.hotkeys.min.js"></script>
+<script type="text/javascript" src="jgraduate/jquery.jgraduate.min.js"></script>
+<script type="text/javascript" src="svgicons/jquery.svgicons.min.js"></script>
+<script type="text/javascript" src="jquerybbq/jquery.bbq.min.js"></script>
+<script type="text/javascript" src="spinbtn/JQuerySpinBtn.js"></script>
+<script type="text/javascript" src="svgcanvas.js"></script>
+<script type="text/javascript" src="svg-editor.js"></script>
+<script type="text/javascript" src="locale/locale.js"></script>
+-->
+
+<!-- always minified scripts -->
+<script type="text/javascript" src="jquery-ui-1.8.4.custom.min.js"></script>
+<script type="text/javascript" src="jpicker-1.0.12.min.js"></script>
+
+<!-- feeds -->
+<link rel="alternate" type="application/atom+xml" title="SVG-edit General Discussion" href="http://groups.google.com/group/svg-edit/feed/atom_v1_0_msgs.xml">
+<link rel="alternate" type="application/atom+xml" title="SVG-edit Updates (Issues/Fixes/Commits)" href="http://code.google.com/feeds/p/svg-edit/updates/basic">
+
+<!-- Add script with custom handlers here -->
+<title>SVG-edit</title>
+<style id="tool_size_rules">#svg_editor .tool_button, #svg_editor					.push_button, #svg_editor					.tool_button_current, #svg_editor					.push_button_pressed, #svg_editor					.disabled, #svg_editor					.icon_label, #svg_editor					.tools_flyout .tool_button{width:16px;height:16px;padding:1px;}#svg_editor .tool_sep{height:16px;margin:2px 2px;}#svg_editor #main_icon{width:31px;height:22px;}#svg_editor #tools_top{left:36px;height:50px;}#svg_editor #tools_left{width:22px;top:50px;}#svg_editor div#workarea{left:27px;top:50px;bottom:55px;}#svg_editor #tools_bottom{left:27px;height:58px;}#svg_editor #color_tools{border-spacing:0 1px;margin-top:-1px;}#svg_editor #color_tools .icon_label{}#svg_editor .color_tool{height:20px;}#svg_editor #tool_opacity{top:1px;height:auto;}#svg_editor #tools_top input, #svg_editor #tools_bottom input{margin-top:2px;height:auto;border:1px solid #555;font-size:.9em;}#svg_editor #zoom_panel{margin-top:3px;}#svg_editor #copyright, #svg_editor #tools_bottom .label{line-height:15px;}#svg_editor #tools_bottom_2{top:4px;}#svg_editor #tools_top > div, #svg_editor #tools_top{line-height:17px;}#svg_editor .dropdown button{height:18px;line-height:18px;margin-top:3px;}#svg_editor #tools_top label, #svg_editor #tools_bottom label{font-size:1em;height:25px;}#svg_editor div.toolset{height:25px;}#svg_editor #tool_bold, #svg_editor #tool_italic{font-size:1.5em;}#svg_editor #sidepanels{top:50px;bottom:51px;}#svg_editor #layerbuttons{}#svg_editor #layerlist{}#svg_editor .layer_button{}#svg_editor input.spin-button{}#svg_editor input.spin-button.up{}#svg_editor input.spin-button.down{}#svg_editor #position_opts{width:64px;}</style><style id="connector_rules"></style></head>
+<body>
+<div id="svg_editor">
+
+<div id="workarea" style="overflow: scroll; line-height: 0px;">
+<style id="styleoverrides" type="text/css" media="screen" scoped="scoped">#svgcanvas svg *{cursor:move;pointer-events:all}, #svgcanvas svg{cursor:default}</style>
+<div id="svgcanvas" style="width: 1920px; height: 1440px;"><svg xmlns="http://www.w3.org/2000/svg" id="svgroot" xlinkns="http://www.w3.org/1999/xlink" width="1920" height="1440" x="640" y="480" overflow="visible"><defs><filter id="canvashadow" filterUnits="objectBoundingBox"><fegaussianblur in="SourceAlpha" stdDeviation="4" result="blur"></fegaussianblur><feoffset in="blur" dx="5" dy="5" result="offsetBlur"></feoffset><femerge><femergenode in="offsetBlur"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter></defs><svg id="canvasBackground" width="640" height="480" x="640" y="480" overflow="visible" style="pointer-events:none"><rect width="100%" height="100%" x="0" y="0" stroke-width="1" stroke="#000" fill="#FFF" style="pointer-events:none"></rect></svg><animate attributeName="opacity" begin="indefinite" dur="1" fill="freeze"></animate><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="480" id="svgcontent" overflow="visible" x="640" y="480" viewBox="0 0 640 480"><defs><filter id="filter3509"><fegaussianblur id="feGaussianBlur3511" stdDeviation="3.18996"></fegaussianblur></filter><lineargradient id="linearGradient3427"><stop stop-color="#999999" id="stop3429" offset="0"></stop><stop stop-color="#e6e6e6" stop-opacity="0" id="stop3431" offset="1"></stop></lineargradient><lineargradient id="linearGradient3271"><stop stop-color="#999999" stop-opacity="0" offset="0" id="stop3273"></stop><stop stop-color="#e6e6e6" offset="1" id="stop3275"></stop></lineargradient><lineargradient id="linearGradient3224"><stop stop-color="#53301a" offset="0" id="stop3226"></stop><stop stop-color="#8d5632" id="stop3228" offset="1"></stop></lineargradient><lineargradient id="linearGradient2801"><stop stop-color="#f8f8f8" id="stop2803" offset="0"></stop><stop stop-color="#f8f8f8" stop-opacity="0" id="stop2805" offset="1"></stop></lineargradient><lineargradient id="linearGradient11043"><stop stop-color="white" id="stop11045" offset="0"></stop><stop stop-color="white" stop-opacity="0" id="stop11047" offset="1"></stop></lineargradient><lineargradient id="linearGradient11117"><stop stop-color="#814b29" id="stop11119" offset="0"></stop><stop stop-color="#a2633a" offset="1" id="stop2872"></stop></lineargradient><lineargradient id="linearGradient10224"><stop stop-color="#b8804d" id="stop10226" offset="0"></stop><stop stop-color="#cd986e" offset="1" id="stop3759"></stop></lineargradient><lineargradient id="linearGradient8438"><stop stop-color="#ba875d" id="stop8440" offset="0"></stop><stop stop-color="#f2e8e0" offset="1" id="stop6181"></stop><stop stop-color="#ba875d" stop-opacity="0" id="stop8442" offset="1"></stop></lineargradient><lineargradient id="linearGradient3108"><stop stop-color="#c9996a" offset="0" id="stop7551"></stop><stop stop-color="#c9996a" stop-opacity="0.498039" id="stop16449" offset="1"></stop><stop stop-color="#c9996a" stop-opacity="0" id="stop3112" offset="1"></stop></lineargradient><lineargradient y2="0.719765" x2="0.716144" y1="0.510076" x1="0.416428" id="linearGradient3551" xlink:href="#linearGradient3271"></lineargradient><lineargradient y2="0.812941" x2="0.583655" y1="0.08023" x1="0.321534" id="linearGradient3553" xlink:href="#linearGradient3427"></lineargradient><lineargradient y2="-0.519091" x2="0.063349" y1="0.754495" x1="0.665366" id="linearGradient3555" xlink:href="#linearGradient8438"></lineargradient><lineargradient y2="-0.642331" x2="0.167549" y1="0.636092" x1="0.542917" id="linearGradient3557" xlink:href="#linearGradient3108"></lineargradient><lineargradient y2="0.23983" x2="0.683041" y1="0.844543" x1="0.660466" id="linearGradient3559" xlink:href="#linearGradient3224"></lineargradient><lineargradient y2="0.500001" x2="0.999987" y1="0.500001" x1="-0.000015" id="linearGradient3561" xlink:href="#linearGradient3224"></lineargradient><lineargradient y2="0.100703" x2="0.845807" y1="0.619781" x1="0.814636" id="linearGradient3563" xlink:href="#linearGradient3224"></lineargradient><lineargradient y2="0.497999" x2="-0.000013" y1="0.497999" x1="0.992378" id="linearGradient3565" xlink:href="#linearGradient3224"></lineargradient><lineargradient y2="0.832647" x2="0.775568" y1="0.23905" x1="0.837006" id="linearGradient3567" xlink:href="#linearGradient11043"></lineargradient><lineargradient y2="0.180262" x2="0.601665" y1="0.500003" x1="0.598702" id="linearGradient3569" xlink:href="#linearGradient10224"></lineargradient><lineargradient y2="0.193626" x2="0.077302" y1="0.38758" x1="0.782124" id="linearGradient3571" xlink:href="#linearGradient11117"></lineargradient><lineargradient y2="0.640142" x2="0.408119" y1="0.387884" x1="0.313936" id="linearGradient3573" xlink:href="#linearGradient2801"></lineargradient></defs><metadata id="metadata7">image/svg+xmlcardboard box17 11 2006molumenboxcardboardopenshadowemptyan open cardboard box</metadata><g style="pointer-events:all"><title style="pointer-events:inherit">Layer 1</title><g id="layer1" style="pointer-events:inherit"><g id="g3513" style="pointer-events:inherit"><path fill="url(#linearGradient3551)" fill-rule="evenodd" stroke-width="0.443843" stroke-miterlimit="4" filter="url(#filter3509)" id="path3277" d="M474.8690064306642,382.30878789428715 L581.517192664795,407.3789050622559 L682.8446878051759,419.1009690899659 L532.996156706543,509.78620542480473 L470.6044592565919,480.0320593182374 L341.6208645361329,441.2603070391846 L474.8690064306642,382.30878789428715 z" style="pointer-events:inherit"></path><path fill="url(#linearGradient3553)" fill-rule="evenodd" stroke-width="0.443843" stroke-miterlimit="4" d="M513.09649203125,392.86777392761235 L581.517438265381,407.3789971289063 L682.8450562060548,419.10106115661625 L532.996402307129,509.7862974914551 L470.60464345703133,480.03215138488775 L387.89612873657234,456.3445530725098 L513.09649203125,392.86777392761235 z" id="rect1902" style="pointer-events:inherit"></path><path fill="url(#linearGradient3555)" fill-rule="evenodd" stroke-width="0.202582" stroke-miterlimit="4" d="M72.38011699951176,119.57933850769044 L52.597112602539084,93.24911660415651 L198.06026103881834,54.63144937286378 L257.40921282958993,128.60897088638305 L256.24549585327156,154.68633173461913 L72.38011699951176,119.57933850769044 z" id="path2210" style="pointer-events:inherit"></path><path fill="url(#linearGradient3557)" fill-rule="evenodd" stroke-width="0" stroke-miterlimit="4" d="M256.39555781127933,128.53062216690063 L453.4485215270996,160.01861346694946 L538.065352800293,131.08501138198852 L557.770686011963,91.63837603057863 L296.9652747998048,54.453363700180056 L256.39555781127933,128.53062216690063 z" id="path2212" style="pointer-events:inherit"></path><path fill="url(#linearGradient3559)" fill-rule="evenodd" stroke="url(#linearGradient3561)" stroke-width="0" stroke-miterlimit="4" d="M257.4134494396973,127.59567382385254 L256.2620738928223,154.86583868621827 L331.1016686401367,168.50090960906982 L388.6706301843262,222.18907041778564 L454.29915915649417,159.1267868412781 L257.4134494396973,127.59567382385254 z" id="path2214" style="pointer-events:inherit"></path><path fill="url(#linearGradient3563)" fill-rule="evenodd" stroke="url(#linearGradient3565)" stroke-width="0" stroke-miterlimit="4" id="path3232" d="M257.1210005419922,127.97277882385254 L256.1363263928223,155.24294368621827 L214.01029989135748,168.50090960906982 L181.5088691516114,222.18907041778564 L144.45731915649412,159.1267868412781 L257.1210005419922,127.97277882385254 z" style="pointer-events:inherit"></path><path fill="#c87137" fill-rule="evenodd" stroke="#a16644" stroke-width="0.5" stroke-linejoin="round" stroke-miterlimit="4" d="M257.19105810913095,127.8426080885315 L111.54628803955086,168.40330745132448 " id="path14603" style="pointer-events:inherit"></path><path fill="#c87137" fill-rule="evenodd" stroke="#a16644" stroke-width="0.5" stroke-linejoin="round" stroke-miterlimit="4" id="path3242" d="M257.10215069702156,127.8092914694214 L255.754478881836,173.3474937272644 " style="pointer-events:inherit"></path><path fill="#a3693c" fill-rule="evenodd" stroke="url(#linearGradient3567)" stroke-width="0.811" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" d="M57.038062397460976,117.10306784545898 L332.0230392382813,165.63867253173828 L391.3672632177735,221.14333136932373 L110.128742857666,170.01995179885864 L57.038062397460976,117.10306784545898 z" id="path2206" style="pointer-events:inherit"></path><path fill="url(#linearGradient3569)" fill-rule="evenodd" stroke-width="0.106" stroke-miterlimit="4" d="M110.1717229602051,169.87060818359376 L389.5942725878907,220.48231583618164 L387.9999563842774,456.391737230835 L121.69984606323248,391.8201014794922 L110.1717229602051,169.87060818359376 z" id="path2204" style="pointer-events:inherit"></path><path fill="url(#linearGradient3571)" fill-rule="evenodd" stroke-width="0" stroke-miterlimit="4" d="M389.50444417358403,220.46592797241212 L520.5782226806641,169.94700048675537 L513.2381421691895,392.9254076507569 L387.97760673095706,456.39449923034675 L389.50444417358403,220.46592797241212 z" id="path2219" style="pointer-events:inherit"></path><path fill="#71472d" fill-rule="evenodd" stroke="url(#linearGradient3573)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" d="M389.48866433593753,220.74755985595704 L518.9823714733888,171.25654501358034 L586.5622585009767,113.1098610180664 L443.1192976843263,156.4781213761902 L389.48866433593753,220.74755985595704 z" id="path2217" style="pointer-events:inherit"></path></g></g></g></svg><g id="selectorParentGroup" transform="translate(640,480)"><rect id="selectorRubberBand" fill="#22C" fill-opacity="0.15" stroke="#22C" stroke-width="0.5" display="none" style="pointer-events:none"></rect></g></svg></div>
+</div>
+
+<div id="sidepanels">
+	<div id="layerpanel">
+		<h3 id="layersLabel">Layers</h3>
+		<fieldset id="layerbuttons">
+			<div id="layer_new" class="layer_button" title="New Layer"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="14" height="14" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <rect x="2.42792" y="1.6692" width="18" height="21" id="svg_55" fill="#eaeaea" stroke="#606060"></rect>
+  <circle stroke="none" fill="url(#xsvg_9240)" id="svg_65" r="6.300781" cy="7.529969" cx="17.761984"></circle>
+ <defs>
+  <radialgradient id="xsvg_9240" cx="0.5" cy="0.5" r="0.5">
+   <stop offset="0.1" stop-color="#ffe500" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#ffff00" stop-opacity="0"></stop>
+  </radialgradient>
+ </defs>
+</svg></svg></div>
+			<div id="layer_delete" class="layer_button" title="Delete Layer"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="14" height="14" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <rect ry="3" rx="3" stroke="#800000" fill="#aa0000" id="svg_37" height="20.29514" width="21.17486" y="1.70304" x="1.42011"></rect>
+  <rect ry="3" rx="3" stroke="#ff5555" fill="#aa0000" id="svg_67" height="18.63022" width="19.61118" y="2.53597" x="2.20258"></rect>
+  <line stroke-width="2" fill="none" stroke="#ffffff" id="svg_68" y2="16.85127" x2="17.00646" y1="6.85127" x1="7.00646"></line>
+  <line stroke-width="2" id="svg_70" fill="none" stroke="#ffffff" y2="16.85127" x2="7.00646" y1="6.85127" x1="17.00646"></line>
+ </svg></svg></div>
+			<div id="layer_rename" class="layer_button" title="Rename Layer"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="14" height="14" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 128">
+	  <text x="58" y="120" id="svg_1" fill="#000000" stroke="none" font-size="120pt" font-family="sans-serif" text-anchor="middle" fill-opacity="1" stroke-opacity="1" font-weight="bold">A</text>
+	  <line x1="136" y1="7" x2="136" y2="121" id="svg_2" stroke="#000000" fill="none" fill-opacity="1" stroke-opacity="1" stroke-width="5"></line>
+	  <line x1="120" y1="4" x2="152" y2="4" id="svg_3" stroke="#000000" stroke-width="5" fill="none" fill-opacity="1" stroke-opacity="1"></line>
+	 <line x1="120" y1="124" x2="152" y2="124" stroke="#000000" stroke-width="5" fill="none" fill-opacity="1" stroke-opacity="1" id="svg_4"></line>
+	</svg></svg></div>
+			<div id="layer_up" class="layer_button" title="Move Layer Up"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="14" height="14" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+	 <defs>
+	  <lineargradient y2="0" x2="0.7" y1="0" x1="0" id="xsvg_74360">
+	   <stop stop-opacity="1" stop-color="#afe853" offset="0"></stop>
+	   <stop stop-opacity="1" stop-color="#52a310" offset="1"></stop>
+	  </lineargradient>
+	 </defs>
+	  <path stroke="#008000" fill="url(#xsvg_74360)" id="svg_33" d="m5.38492,16.77043l7.07692,0l0,-5.23077l4.15385,0l-7.69231,-10.15385l-7.69231,10.15385l4.15385,0l0,5.23077z"></path>
+	</svg></svg></div>
+			<div id="layer_down" class="layer_button" title="Move Layer Down"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="14" height="14" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+ <defs>
+  <lineargradient y2="0" x2="0.7" y1="0" x1="0" id="xsvg_75370">
+   <stop stop-opacity="1" stop-color="#afe853" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#52a310" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <path stroke="#008000" fill="url(#xsvg_75370)" id="svg_33" d="m5.3015,1.69202l6.93483,0l0,5.07323l4.07045,0l-7.53786,9.84803l-7.53786,-9.84803l4.07045,0l0,-5.07323z"></path>
+ </svg></svg></div>
+		</fieldset>
+		
+		<table id="layerlist">
+			<tbody><tr class="layer layersel"><td class="layervis"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="14" height="14" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+ <defs>
+  <lineargradient y2="0.79688" x2="0.5625" y1="0.19141" x1="0.42969" id="xsvg_91640">
+   <stop stop-opacity="1" stop-color="#d3a16b" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#a37c53" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <path stroke="none" fill="url(#xsvg_91640)" id="svg_9" d="m0.12852,8.18338c3.59931,-7.71208 13.19749,-7.36932 16.75236,0.08569c-3.02165,7.5407 -13.59741,7.66924 -16.75236,-0.08569z"></path>
+  <path id="svg_76" stroke="none" fill="#ffffff" d="m0.33033,8.2557c3.5173,-4.97159 12.89675,-4.75063 16.37062,0.05524c-2.95279,4.86111 -13.28756,4.94397 -16.37062,-0.05524z"></path>
+  <circle stroke="none" fill="#4f92c1" id="svg_88" r="3.08008" cy="7.71116" cx="8.45861"></circle>
+  <circle stroke="none" fill="#000000" id="svg_89" r="1.27539" cy="7.6539" cx="8.43159"></circle>
+ </svg></svg></td><td class="layername">Layer 1</td></tr><tr><td style="color:white">_</td><td></td></tr><tr><td style="color:white">_</td><td></td></tr><tr><td style="color:white">_</td><td></td></tr><tr><td style="color:white">_</td><td></td></tr></tbody></table>
+		<span id="selLayerLabel">Move elements to:</span>
+		<select id="selLayerNames" title="Move selected elements to a different layer" disabled="" autocomplete="off"><option value="Layer 1">Layer 1</option></select>
+	</div>
+	<div id="sidepanel_handle" title="Drag left/right to resize side panel [X]">L a y e r s</div>
+</div>
+
+<div id="main_button">
+	<div id="main_icon" class="buttonup" title="Main Menu">
+		<span></span>
+		<div id="logo"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20.8" height="20.8" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 478 472">
+ <defs>
+  <lineargradient id="xsvg_500" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#ffffe0" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#edc39c" stop-opacity="1"></stop>
+  </lineargradient>
+  <lineargradient id="xsvg_1001" x1="0.57031" y1="0.78125" x2="0.28906" y2="0.41406">
+   <stop offset="0" stop-color="#ff7f00" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#ffff00"></stop>
+  </lineargradient>
+  <lineargradient id="xsvg_1802" x1="0.37891" y1="0.35938" x2="1" y2="1">
+   <stop offset="0" stop-color="#e0e0e0" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#666666" stop-opacity="1"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <path d="m68.82031,270.04688l-22,-33l17,-35l34,2l25,15l7,-35l28,-16l25,12l100,102l21,23l-15,35l-36,9l20,49l-31,24l-49,-17l-1,31l-33,21l-31,-19l-13,-35l-30,21l-30,-9l-5,-35l16,-31l-32,-6l-15,-19l3,-36l47,-18z" id="svg_19" fill="#ffffff"></path>
+  <path fill="#1a171a" fill-rule="nonzero" id="path2902" d="m158.96452,155.03685c-25.02071,0 -45.37077,20.35121 -45.37077,45.3775c0,0.72217 0.01794,1.4399 0.0471,2.15645c-0.49339,-0.53604 -0.99355,-1.06085 -1.50603,-1.58452c-8.56077,-8.55519 -19.95982,-13.28413 -32.07432,-13.28413c-12.12122,0 -23.52027,4.72334 -32.08778,13.29646c-17.69347,17.69464 -17.69347,46.4619 0,64.17445c0.51809,0.51697 1.0485,1.0126 1.59015,1.50601c-0.72891,-0.03586 -1.45782,-0.04822 -2.19234,-0.04822c-25.02071,0 -45.37189,20.35117 -45.37189,45.37747c0,25.01398 20.35119,45.36517 45.37189,45.36517c0.72891,0 1.45221,-0.01236 2.1744,-0.04828c-0.5293,0.48221 -1.05412,0.98801 -1.56547,1.49368c-17.70021,17.68906 -17.70021,46.48654 -0.00628,64.18677c8.57872,8.56747 19.96655,13.2785 32.08778,13.2785c12.1145,0 23.5012,-4.71103 32.07433,-13.2785c0.51247,-0.51694 1.01823,-1.04849 1.50603,-1.57895c-0.02915,0.71213 -0.04709,1.44669 -0.04709,2.15759c0,25.01511 20.35007,45.37747 45.37077,45.37747c25.01398,0 45.37079,-20.3624 45.37079,-45.37747c0,-0.7222 -0.01689,-1.44553 -0.05266,-2.18112c0.48105,0.52933 0.97562,1.04849 1.48697,1.56662c8.57982,8.57977 19.97775,13.2908 32.1057,13.2908c12.11003,0 23.51358,-4.71103 32.0687,-13.2785c17.68906,-17.70013 17.68906,-46.48538 0,-64.17441c-0.50577,-0.4946 -1.01141,-1.00034 -1.54306,-1.48248c0.69983,0.03592 1.42316,0.04828 2.16992,0.04828c25.01514,0 45.35284,-20.35123 45.35284,-45.36517c0,-25.02631 -20.33774,-45.37747 -45.35284,-45.37747c-0.74683,0 -1.47009,0.01236 -2.19345,0.04822c0.53152,-0.49341 1.06082,-0.98904 1.59128,-1.50601c8.55521,-8.55521 13.2785,-19.94186 13.2785,-32.07545c0,-12.12793 -4.72336,-23.52028 -13.30319,-32.0934c-8.55515,-8.56076 -19.95866,-13.2841 -32.0687,-13.2841c-12.12122,0 -23.52025,4.72334 -32.08777,13.2841c-0.51137,0.5181 -1.01822,1.04851 -1.5049,1.57895c0.03586,-0.72331 0.05266,-1.43991 0.05266,-2.16881c0,-25.02629 -20.35681,-45.3775 -45.37079,-45.3775m0,20.71901c13.61607,0 24.65851,11.03122 24.65851,24.65849c0,6.62749 -2.651,12.62137 -6.9101,17.04979l0,51.67419l36.53975,-36.53523c0.12001,-6.14418 2.48277,-12.24686 7.18146,-16.94667c4.81305,-4.81305 11.12094,-7.22409 17.44116,-7.22409c6.30228,0 12.61577,2.41104 17.43552,7.22409c9.62166,9.63287 9.62166,25.24948 0,34.87669c-4.69977,4.68634 -10.80803,7.04915 -16.95334,7.18147l-36.5341,36.53305l51.66742,0c4.42841,-4.25351 10.42905,-6.90451 17.08008,-6.90451c13.59137,0 24.62933,11.03799 24.62933,24.66525c0,13.61606 -11.03796,24.66519 -24.62933,24.66519c-6.65106,0 -12.65167,-2.66333 -17.08008,-6.91681l-51.64836,0l36.50273,36.50946c6.16995,0.14465 12.26587,2.50522 16.96568,7.20618c9.6216,9.61487 9.6216,25.23151 0,34.85757c-4.80856,4.81979 -11.13327,7.22974 -17.43556,7.22974c-6.32019,0 -12.63371,-2.40991 -17.44786,-7.22974c-4.68074,-4.68744 -7.04802,-10.79572 -7.17473,-16.94098l-36.53975,-36.53415l0,51.66742c4.25908,4.44635 6.9101,10.43466 6.9101,17.0621c0,13.62729 -11.04243,24.66415 -24.65851,24.66415c-13.62166,0 -24.65848,-11.0369 -24.65848,-24.66415c0,-6.62744 2.64539,-12.61575 6.90335,-17.0621l0,-51.66742l-36.53864,36.54648c-0.12672,6.14413 -2.48838,12.26477 -7.18147,16.94098c-4.81416,4.81873 -11.12206,7.22974 -17.42882,7.22974c-6.31461,0 -12.6225,-2.41101 -17.43555,-7.22974c-9.63284,-9.62833 -9.63284,-25.24277 0,-34.8699c4.68073,-4.67627 10.79012,-7.05026 16.94101,-7.18262l36.533,-36.53302l-51.66632,0c-4.44075,4.25348 -10.42902,6.91681 -17.06211,6.91681c-13.61606,0 -24.65288,-11.04913 -24.65288,-24.66519c0,-13.62726 11.03682,-24.66525 24.65288,-24.66525c6.63309,0 12.62136,2.651 17.06211,6.90451l51.68537,0l-36.55208,-36.54538c-6.14527,-0.12 -12.25354,-2.49403 -16.94775,-7.19377c-9.62611,-9.61493 -9.62611,-25.23715 0,-34.86441c4.81419,-4.81305 11.12769,-7.22406 17.44228,-7.22406c6.30676,0 12.61465,2.41101 17.42883,7.22406c4.69978,4.69307 7.06034,10.80246 7.18144,16.94777l36.5386,36.53299l0,-51.66074c-4.25795,-4.42841 -6.90334,-10.42229 -6.90334,-17.04979c0,-13.62726 11.03682,-24.65848 24.65848,-24.65848"></path>
+  <path d="m188.82031,210.04688l16,-47l155,-148l107,100l-158,156.99999l-44,12l-76,-74z" id="svg_6" fill="url(#xsvg_1001)" stroke="none"></path>
+  <path d="m335.57031,40.29688c-11.5,39.75 55.5,115.25 109.25,98.75l21,-20.99999l-103,-101l-27.25,23.25z" id="svg_11" fill="url(#xsvg_1802)" stroke="none"></path>
+  <rect x="272.80404" y="20.76382" width="42.35197" height="232.66835" id="svg_13" fill="#ffffff" stroke="none" transform="rotate(45.9094, 293.98, 137.1)" opacity="0.4"></rect>
+  <rect x="282.80404" y="22.76382" width="14" height="232.66835" fill="#ffffff" stroke="none" transform="rotate(45.9094, 289.805, 139.1)" opacity="0.4" id="svg_14"></rect>
+  <ellipse cx="415.13312" cy="64.38066" id="svg_12" fill="#ea7598" stroke="none" rx="67.79251" ry="34.82026" transform="rotate(39.4735, 415.133, 64.379)"></ellipse>
+  <path d="m212.07031,166.04688c-8.5,47 36.25,103.75 99.25,96.75l-152.5,53.25l53.25,-150z" id="svg_4" fill="url(#xsvg_500)" stroke="none"></path>
+  <path d="m181.32031,242.54688c0.5,20.5 26.75,45 46.75,48.5l-66.25,20l19.5,-68.5z" id="svg_3" fill="#27382f" stroke="none"></path>
+ </g>
+ <g>
+  <title>Layer 2</title>
+  <path d="m152.82031,317.04688l51,-152l157,-153c40,-12.00001 118,48 105,105l-157,152.99999l-156,47z" id="svg_1" fill="none" stroke="#800000" stroke-width="17"></path>
+ </g>
+</svg></svg></div>
+		<div class="dropdown"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="9" height="9" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></div>
+	</div>
+		
+	<div id="main_menu"> 
+	
+		<!-- File-like buttons: New, Save, Source -->
+		<ul>
+			<li id="tool_clear">
+				<div><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <rect x="2.42792" y="1.6692" width="18" height="21" id="svg_55" fill="#eaeaea" stroke="#606060"></rect>
+  <circle stroke="none" fill="url(#xxsvg_924010)" id="svg_65" r="6.300781" cy="7.529969" cx="17.761984"></circle>
+ <defs>
+  <radialgradient id="xxsvg_924010" cx="0.5" cy="0.5" r="0.5">
+   <stop offset="0.1" stop-color="#ffe500" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#ffff00" stop-opacity="0"></stop>
+  </radialgradient>
+ </defs>
+</svg></svg></div>
+				New Image [N]
+			</li>
+			
+			<li id="tool_open" style=""><input type="file">
+				<div id="fileinputs">
+					<div><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+ <defs>
+  <lineargradient y2="0.91406" x2="0.65234" y1="0.14063" x1="0.42578" id="xsvg_76270">
+   <stop stop-opacity="1" stop-color="#81bbf4" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#376eb7" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <rect x="1.65" y="3.75" width="9.8" height="16.72712" id="svg_98" fill="#c0c0c0" stroke="#606060"></rect>
+  <rect stroke="none" fill="#a0a0a0" id="svg_88" height="14.17459" width="6.39585" y="4.9758" x="2.89542"></rect>
+  <path d="m18.62576,4.54365l0,6.91443l-9.9395,0l-0.08643,-10.11236l6.828,0l3.19792,3.19793z" id="svg_99" fill="#e0e0e0" stroke="#404040"></path>
+  <path d="m2.95,20.53644l1.65,-12.03644l16.2,0l-1.5,12l-16.35,0.03643z" id="svg_97" fill="url(#xsvg_76270)" stroke="#285582"></path>
+  <line fill="none" stroke="#606060" id="svg_89" y2="4.28436" x2="13.95851" y1="4.28436" x1="10.32844"></line>
+  <line fill="none" stroke="#606060" id="svg_91" y2="6.53155" x2="14.82282" y1="6.53155" x1="10.32844"></line>
+  <path stroke="none" fill="#ffffff" id="svg_100" d="m15.25895,1.95069l-0.00401,2.85225l2.89558,0.00004l-2.89157,-2.85229z"></path>
+</svg></svg></div>
+				</div>
+				Open Image [O]
+			</li>
+			
+			<li id="tool_import" style=""><input type="file">
+				<div id="fileinputs_import">
+					<div><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient y2="0.875" x2="0.21484" y1="0.00391" x1="0.04297" id="xsvg_46_import280">
+   <stop stop-opacity="1" stop-color="#81f4bb" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#37b76e" offset="1"></stop>
+  </lineargradient>
+ </defs>
+ <rect x="2.42792" y="1.6692" width="18" height="21" id="svg_55" fill="#eaeaea" stroke="#606060"></rect>
+	  <path stroke="#285582" fill="url(#xsvg_46_import280)" id="svg_45" d="m7.14286,12.74903l5.21236,5.79151l5.50193,-5.88803l-2.50965,-0.09653l0,-2.79923c0,-2.3166 -2.3166,-5.59846 -6.56371,-5.59846c-4.05405,0 -6.27413,3.37838 -6.56371,6.75676c0.48263,-1.5444 2.7027,-4.53668 4.44015,-4.44015c2.12355,-0.09653 2.79923,1.64093 2.79923,3.37838l0.09653,2.79923l-2.41313,0.09653z"></path>
+</svg></svg></div>
+				</div>
+				Import SVG
+			</li>
+			
+			<li id="tool_save">
+				<div><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	 <defs>
+	  <lineargradient y2="0" x2="1" y1="0" x1="0" id="xsvg_41250">
+	   <stop stop-opacity="1" stop-color="#727272" offset="0"></stop>
+	   <stop stop-opacity="1" stop-color="#d6d6d6" offset="1"></stop>
+	  </lineargradient>
+	  <lineargradient y2="0.875" x2="0.21484" y1="0.00391" x1="0.04297" id="xsvg_46251">
+	   <stop stop-opacity="1" stop-color="#81bbf4" offset="0"></stop>
+	   <stop stop-opacity="1" stop-color="#376eb7" offset="1"></stop>
+	  </lineargradient>
+	 </defs>
+	   <path stroke="#202020" fill="#e0e0e0" id="svg_21" d="m1.51669,22.3458l21.13245,-0.10111l0,-6.06673l-2.62892,-9.80789l-16.27907,0.10111l-2.32558,9.20121l0.10111,6.67341z"></path>
+	   <rect stroke="#efefef" fill="url(#xsvg_41250)" id="svg_32" height="4.75108" width="19.21031" y="16.58227" x="2.42667"></rect>
+	   <path stroke="#ffffff" fill="#c0c0c0" id="svg_42" d="m4.55005,11.12235l0.70779,-2.83114l13.04348,0l0.70779,3.13448c-0.70779,2.52781 -4.04479,3.84227 -7.17897,3.84227c-2.72977,0 -6.37007,-1.41557 -7.28008,-4.1456z"></path>
+	  <path stroke="#285582" fill="url(#xsvg_46251)" id="svg_45" d="m7.14286,9.74903l5.21236,5.79151l5.50193,-5.88803l-2.50965,-0.09653l0,-2.79923c0,-2.3166 -2.3166,-5.59846 -6.56371,-5.59846c-4.05405,0 -6.27413,3.37838 -6.56371,6.75676c0.48263,-1.5444 2.7027,-4.53668 4.44015,-4.44015c2.12355,-0.09653 2.79923,1.64093 2.79923,3.37838l0.09653,2.79923l-2.41313,0.09653z"></path>
+	</svg></svg></div>
+				Save Image [S]
+			</li>
+			
+			<li id="tool_export">
+				<div><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	 <defs>
+	  <lineargradient id="xsvg_5260" x1="0.77734" y1="0.51172" x2="0.09375" y2="0.53516">
+	   <stop offset="0" stop-color="#81bbf4"></stop>
+	   <stop offset="1" stop-color="#376eb7"></stop>
+	  </lineargradient>
+	 </defs>
+	 <g>
+	  <rect x="7.22599" y="1.3603" width="15.76465" height="21.51735" id="svg_55" fill="#eaeaea" stroke="#606060"></rect>
+	  <circle fill="#31abed" stroke-width="0.5" cx="17.4206" cy="11.1278" r="4.69727" id="svg_3"></circle>
+	  <path fill="#ffcc00" stroke-width="0.5" d="m9.67673,20.24302l7.38701,-6.80778l2.91746,6.71323" id="svg_4"></path>
+	  <rect fill="#ff5555" stroke-width="0.5" x="9.5385" y="2.94914" width="5.74652" height="5.74652" id="svg_2"></rect>
+	  <path d="m6.13727,17.94236l5.77328,-4.91041l-5.86949,-5.1832l-0.09622,2.36426l-4.64805,-0.06751l-0.04665,5.54694l4.79093,-0.02342l0.09623,2.27334z" id="svg_45" fill="url(#xsvg_5260)" stroke="#285582"></path>
+	 </g>
+	</svg></svg></div>
+				Export as PNG
+			</li>
+			
+			<li id="tool_docprops">
+				<div><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	 <defs>
+	  <lineargradient y2="1" x2="1" y1="0.5" x1="1" id="xsvg_53290">
+	   <stop stop-opacity="1" stop-color="#606060" offset="0"></stop>
+	   <stop stop-opacity="0" stop-color="#5e5e5e" offset="1"></stop>
+	  </lineargradient>
+	 </defs>
+	  <rect stroke="#606060" fill="#eaeaea" id="svg_55" height="21" width="18" y="1.6692" x="2.42792"></rect>
+	  <line fill="none" stroke="#a0a0a0" id="svg_56" y2="4.37757" x2="14.89023" y1="4.37757" x1="6.696"></line>
+	  <line fill="none" stroke="#a0a0a0" id="svg_57" y2="7.10804" x2="12.92026" y1="7.10804" x1="6.6948"></line>
+	  <line fill="none" stroke="#a0a0a0" id="svg_58" y2="9.84241" x2="15.64716" y1="9.84241" x1="6.6942"></line>
+	  <line fill="none" stroke="#a0a0a0" id="svg_59" y2="12.36585" x2="13.21805" y1="12.36585" x1="6.69691"></line>
+	  <line fill="none" stroke="#a0a0a0" id="svg_60" y2="15.06507" x2="14.43591" y1="15.06507" x1="6.69691"></line>
+	  <line fill="none" stroke="#a0a0a0" id="svg_61" y2="17.84241" x2="13.36979" y1="17.84241" x1="6.69691"></line>
+	  <g id="svg_54">
+	   <path transform="rotate(-45, 12.5448, 11.7085)" stroke="none" fill="#606060" id="svg_31" d="m11.24329,8.73944l0,2.79974l2.53499,0.07777l0,-2.95528c1.78134,0.07777 2.26093,1.39987 2.12391,2.95528c-0.06851,1.63318 -1.30175,3.49967 -3.49418,3.26636c-2.19242,-0.31108 -2.87755,-1.39987 -3.15161,-2.72197c-0.27406,-1.39987 0.41108,-3.34413 1.98689,-3.4219z"></path>
+	   <rect opacity="0.95" transform="rotate(-45, 16.2485, 15.1732)" stroke="none" fill="url(#xsvg_53290)" id="svg_50" height="4.85445" width="2.57974" y="12.746" x="15.04047"></rect>
+	  </g>
+	</svg></svg></div>
+				Document Properties [P]
+			</li>
+		</ul>
+		
+		<p>
+			<a href="http://svg-edit.googlecode.com/" target="_blank">
+				SVG-edit Home Page
+			</a>
+		</p>
+
+	</div>
+</div>
+
+
+
+<div id="tools_top" class="tools_panel">
+	
+	<div id="editor_panel">
+		<div class="push_button" id="tool_source" title="Edit Source [U]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 52">
+  <text text-anchor="middle" font-family="monospace" font-size="24" stroke="none" fill="#019191" id="svg_40" y="15" x="28.23" font-weight="bold">s</text>
+  <text text-anchor="middle" font-family="monospace" font-size="24" stroke="none" fill="#019191" id="svg_47" y="30" x="28.23" font-weight="bold">v</text>
+  <text text-anchor="middle" font-family="monospace" font-size="24" stroke="none" fill="#019191" id="svg_48" y="44" x="28.23" font-weight="bold">g</text>
+  <line stroke-width="3" fill="none" stroke="#aa0000" id="svg_51" y2="43" x2="16" y1="25" x1="5"></line>
+  <line id="svg_62" stroke-width="3" fill="none" stroke="#aa0000" y2="8" x2="16" y1="26" x1="5"></line>
+  <line id="svg_63" stroke-width="3" fill="none" stroke="#aa0000" y2="43" x2="39" y1="25" x1="50"></line>
+  <line id="svg_64" stroke-width="3" fill="none" stroke="#aa0000" y2="8" x2="39" y1="26" x1="51"></line>
+ </svg></svg></div>
+		<div class="tool_button" id="tool_wireframe" title="Wireframe Mode [F]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <circle stroke="#000000" fill="none" id="svg_49" r="8" cy="9.5" cx="9.5"></circle>
+  <rect stroke="#000000" fill="none" id="svg_52" height="14" width="14" y="8.5" x="8.5"></rect>
+ </svg></svg></div>
+	</div>
+
+    <!-- History buttons -->
+	<div id="history_panel">
+		<div class="tool_sep"></div>
+		<div class="push_button tool_button_disabled" id="tool_undo" title="Undo [Z]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient id="xsvg_66320" x1="0.04297" y1="0.00391" x2="0.21484" y2="0.875">
+   <stop offset="0" stop-color="#f7f963" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#d3c310" stop-opacity="1"></stop>
+  </lineargradient>
+ </defs>
+  <path transform="rotate(-90, 10.3017, 11.5526)" d="m6.70188,10.72562l6.55493,-7.13388l6.65817,7.24912l-3.79441,0.03193l0,2.72259c-0.04257,2.74017 -2.76516,5.83068 -7.81235,6.02135c-5.18575,0 -7.1226,-3.75464 -7.49302,-7.41944c0.61736,1.6754 3.14913,3.78397 5.3716,3.67918c2.71635,0.1048 4.41501,-0.61714 4.41501,-2.50184l0,-2.64901l-3.89995,0z" id="svg_45" fill="url(#xsvg_66320)" stroke="#b7a800"></path>
+ </svg></svg></div>
+		<div class="push_button tool_button_disabled disabled" id="tool_redo" title="Redo [Y]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient y2="1" x2="1" y1="0" x1="1" id="xsvg_71330">
+   <stop stop-opacity="1" stop-color="#98fc46" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#56aa25" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <path transform="rotate(-90, 12.7299, 11.5526)" d="m9.11294,12.43144l6.54089,6.84566l6.6439,-6.95624l-3.78628,-0.03064l0,-2.61259c-0.04248,-2.62946 -2.75924,-5.5951 -7.79561,-5.77807c-5.17464,0 -7.10734,3.60294 -7.47697,7.11967c0.61604,-1.60771 3.14238,-3.63109 5.36009,-3.53053c2.71053,-0.10056 4.40555,0.59221 4.40555,2.40076l0,2.54198l-3.89159,0z" id="svg_45" fill="url(#xsvg_71330)" stroke="#44aa00"></path>
+ </svg></svg></div>
+	</div>
+	
+	<!-- Buttons when a single element is selected -->
+	<div id="selected_panel" style="display: none;">
+		<div class="toolset">
+			<div class="tool_sep"></div>
+			<div class="push_button" id="tool_clone" title="Clone Element [C]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+ <defs>
+  <lineargradient y2="1" x2="1" y1="0" x1="0" id="xsvg_36340">
+   <stop stop-opacity="1" stop-color="#f9f3de" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#ccbd8f" offset="1"></stop>
+  </lineargradient>
+  <lineargradient y2="0.80078" x2="0.42578" y1="0" x1="0" id="xsvg_69341">
+   <stop stop-opacity="1" stop-color="#f9f3de" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#af995b" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <path stroke="#8f5902" fill="url(#xsvg_69341)" id="svg_34" d="m2.11676,16.32061l-0.13787,-5.05515l1.93015,-2.02206l10.11029,0l2.02206,2.29779l0,4.77941l-13.92463,0z"></path>
+  <rect x="7.85379" y="6.30027" width="2.2932" height="4.3407" id="svg_38" fill="url(#xsvg_36340)" stroke="#8f5902" rx="1" ry="1"></rect>
+  <circle stroke="#8f5902" fill="url(#xsvg_36340)" id="svg_35" r="2.96392" cy="4.48149" cx="9.11757"></circle>
+  <line x1="2.44838" y1="12.03512" x2="15.5524" y2="12.03512" id="svg_39" stroke="#f9f3de" fill="none"></line>
+  <path d="m6.72427,12.55859l4.74203,0l-2.30831,2.07258l-2.43372,-2.07258z" id="svg_43" fill="#000000" stroke="none"></path>
+</svg></svg></div>
+			<div class="push_button" id="tool_delete" title="Delete Element [del/backspace]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <rect ry="3" rx="3" stroke="#800000" fill="#aa0000" id="svg_37" height="20.29514" width="21.17486" y="1.70304" x="1.42011"></rect>
+  <rect ry="3" rx="3" stroke="#ff5555" fill="#aa0000" id="svg_67" height="18.63022" width="19.61118" y="2.53597" x="2.20258"></rect>
+  <line stroke-width="2" fill="none" stroke="#ffffff" id="svg_68" y2="16.85127" x2="17.00646" y1="6.85127" x1="7.00646"></line>
+  <line stroke-width="2" id="svg_70" fill="none" stroke="#ffffff" y2="16.85127" x2="7.00646" y1="6.85127" x1="17.00646"></line>
+ </svg></svg></div>
+			<div class="tool_sep"></div>
+			<div class="push_button" id="tool_move_top" title="Move to Top [shift+up]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23">
+ <defs>
+  <lineargradient id="xsvg_86390" x1="0" y1="0" x2="1" y2="0">
+   <stop offset="0" stop-color="#9fdcf4" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#617e96" stop-opacity="1"></stop>
+  </lineargradient>
+ </defs>
+  <line x1="1.3" y1="8.19922" x2="12.8" y2="8.19922" id="svg_72" stroke="#000000" fill="none" stroke-width="2"></line>
+  <line x1="1.29844" y1="12.19922" x2="12.79844" y2="12.19922" stroke="#000000" fill="none" stroke-width="2" id="svg_73"></line>
+  <line x1="1.29922" y1="16.19922" x2="12.79922" y2="16.19922" stroke="#000000" fill="none" stroke-width="2" id="svg_74"></line>
+  <line x1="1.29922" y1="20.19922" x2="12.79922" y2="20.19922" stroke="#000000" fill="none" stroke-width="2" id="svg_75"></line>
+  <rect x="1.55" y="1.85" width="20" height="3.2" id="svg_77" fill="url(#xsvg_86390)" stroke="#000000"></rect>
+  <path d="m16.83475,21.14603l2.33207,0l0,-11.04578l1.98474,0l-3.15077,-3.44869l-3.15077,3.44869l1.98474,0l0,11.04578z" id="svg_81" fill="#000000" stroke="none"></path>
+ </svg></svg></div>
+			<div class="push_button" id="tool_move_bottom" title="Move to Bottom [shift+down]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23">
+ <defs>
+  <lineargradient y2="0" x2="1" y1="0" x1="0" id="xsvg_80380">
+   <stop stop-opacity="1" stop-color="#bc7f05" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#fcfc9f" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <line stroke-width="2" fill="none" stroke="#000000" id="svg_72" y2="2.5" x2="22" y1="2.5" x1="10.5"></line>
+  <line id="svg_73" stroke-width="2" fill="none" stroke="#000000" y2="6.5" x2="21.99844" y1="6.5" x1="10.49844"></line>
+  <line id="svg_74" stroke-width="2" fill="none" stroke="#000000" y2="10.5" x2="21.99922" y1="10.5" x1="10.49922"></line>
+  <line id="svg_75" stroke-width="2" fill="none" stroke="#000000" y2="14.5" x2="21.99922" y1="14.5" x1="10.49922"></line>
+  <rect stroke="#000000" fill="url(#xsvg_80380)" id="svg_77" height="2.2" width="20" y="17.65" x="1.65"></rect>
+  <path stroke="none" fill="#000000" id="svg_81" d="m4.25,1.55l2.35,0l0,11.05l2,0l-3.175,3.45l-3.175,-3.45l2,0l0,-11.05z"></path>
+ </svg></svg></div>
+			<div class="push_button" id="tool_topath" title="Convert to Path"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient y2="0.46875" x2="0.42969" y1="0.10156" x1="0.10547" id="xsvg_105400">
+   <stop stop-color="#ff0000" offset="0"></stop>
+   <stop stop-opacity="0" stop-color="#ff0000" offset="1"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <circle cx="21" cy="21.3125" r="18.44531" id="svg_120" fill="url(#xsvg_105400)" stroke="#000000"></circle>
+  <path fill="none" stroke="#000000" d="m2.875,21.3125c-0.375,-9.25 7.75,-18.875 17.75,-18" id="svg_115"></path>
+  <line x1="25.375" y1="3.0625" x2="8.5" y2="3.0625" id="svg_116" stroke="#808080" fill="none"></line>
+  <line x1="2.625" y1="24.75" x2="2.625" y2="9.8125" id="svg_117" stroke="#808080" fill="none"></line>
+  <circle cx="8.5" cy="2.9375" r="1.95313" fill="#00ffff" stroke="#0000ff" stroke-width="0.5" id="svg_118"></circle>
+  <circle cx="2.625" cy="9.8125" r="1.95313" fill="#00ffff" stroke="#0000ff" stroke-width="0.5" id="svg_119"></circle>
+  <circle cx="20.875" cy="3.1875" r="2.5" id="svg_112" fill="#00ffff" stroke="#0000ff"></circle>
+  <circle cx="2.875" cy="21.0625" r="2.5" fill="#00ffff" stroke="#0000ff" id="svg_114"></circle>
+ </g>
+</svg></svg></div>
+			<div class="push_button" id="tool_reorient" title="Reorient path"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient y2="1" x2="1" y1="1" x1="0" id="xsvg_113420">
+   <stop stop-opacity="0" stop-color="#0000ff" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#507ece" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <rect stroke-dasharray="2,2" stroke="#0000ff" fill="none" id="svg_108" height="19.125" width="18.625" y="2.625" x="2.875"></rect>
+  <rect transform="rotate(45, 12.2344, 12.1719)" stroke="#000000" fill="url(#xsvg_113420)" id="svg_107" height="6.125" width="16" y="9.10848" x="4.23267"></rect>
+</svg></svg></div>
+			<div class="tool_sep"></div>
+			<label id="idLabel" title="Identify the element">
+				<span>id:</span>
+				<input id="elem_id" class="attr_changer" data-attr="id" size="10" type="text" autocomplete="off">
+			</label>
+		</div>
+
+		<label id="tool_angle" title="Change rotation angle">
+			<span id="angleLabel" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <path stroke-width="2" stroke-dasharray="1,3" id="svg_6" d="m32.78778,41.03469c-0.40379,-8.68145 -4.50873,-16.79003 -12.11365,-20.5932" stroke="#000000" fill="none"></path>
+  <path id="svg_7" d="m29.20348,7.67055l-24.20348,34.47921l41.16472,0" stroke-width="3" stroke="#404040" fill="none"></path>
+</svg></svg></span>
+			<input id="angle" size="2" value="0" type="text" autocomplete="off" class="spin-button">
+		</label>
+		
+		<div class="toolset" id="tool_blur" title="Change gaussian blur value">
+			<label>
+				<span id="blurLabel" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <filter id="xsvg_4_blur490" x="-50%" y="-50%" width="200%" height="200%">
+   <fegaussianblur stdDeviation="25"></fegaussianblur>
+  </filter>
+ </defs>
+  <circle fill="#000000" stroke="#000000" stroke-width="5" stroke-dasharray="null" cx="150" cy="150" r="91.80151" id="svg_4" filter="url(#xsvg_4_blur490)"></circle>
+</svg></svg></span>
+				<input id="blur" size="2" value="0" type="text" autocomplete="off" class="spin-button">
+			</label>
+			<div id="blur_dropdown" class="dropdown">
+				<button><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="7" height="7" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></button>
+				<ul>
+					<li class="special"><div id="blur_slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><a href="svg-editor.html" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></a></div></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="dropdown toolset" id="tool_position" title="Align Element to Page">
+				<div id="cur_position" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+	  <rect stroke="#606060" fill="#c0c0c0" id="svg_4" height="7" width="12" y="7.5" x="4.5"></rect>
+	  <rect stroke="#c15909" fill="#ef9a23" id="svg_2" height="40" width="2" y="-10" x="9.5"></rect>
+	  <rect stroke="#ffffff" fill="none" id="svg_5" height="5" width="10" y="8.5" x="5.5"></rect>
+	</svg></svg></div>
+				<button><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="7" height="7" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></button>
+		</div>		
+
+		<div id="xy_panel" class="toolset">
+			<label>
+				x: <input id="selected_x" class="attr_changer" title="Change X coordinate" size="3" data-attr="x" autocomplete="off">
+			</label>
+			<label>
+				y: <input id="selected_y" class="attr_changer" title="Change Y coordinate" size="3" data-attr="y" autocomplete="off">
+			</label>
+		</div>
+	</div>
+
+	<!-- Buttons when multiple elements are selected -->
+	<div id="multiselected_panel" style="display: none;">
+		<div class="tool_sep"></div>
+		<div class="push_button" id="tool_clone_multi" title="Clone Element [C]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+ <defs>
+  <lineargradient y2="1" x2="1" y1="0" x1="0" id="xxsvg_3634010">
+   <stop stop-opacity="1" stop-color="#f9f3de" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#ccbd8f" offset="1"></stop>
+  </lineargradient>
+  <lineargradient y2="0.80078" x2="0.42578" y1="0" x1="0" id="xxsvg_6934111">
+   <stop stop-opacity="1" stop-color="#f9f3de" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#af995b" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <path stroke="#8f5902" fill="url(#xxsvg_6934111)" id="svg_34" d="m2.11676,16.32061l-0.13787,-5.05515l1.93015,-2.02206l10.11029,0l2.02206,2.29779l0,4.77941l-13.92463,0z"></path>
+  <rect x="7.85379" y="6.30027" width="2.2932" height="4.3407" id="svg_38" fill="url(#xxsvg_3634010)" stroke="#8f5902" rx="1" ry="1"></rect>
+  <circle stroke="#8f5902" fill="url(#xxsvg_3634010)" id="svg_35" r="2.96392" cy="4.48149" cx="9.11757"></circle>
+  <line x1="2.44838" y1="12.03512" x2="15.5524" y2="12.03512" id="svg_39" stroke="#f9f3de" fill="none"></line>
+  <path d="m6.72427,12.55859l4.74203,0l-2.30831,2.07258l-2.43372,-2.07258z" id="svg_43" fill="#000000" stroke="none"></path>
+</svg></svg></div>
+		<div class="push_button" id="tool_delete_multi" title="Delete Element [del/backspace]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <rect ry="3" rx="3" stroke="#800000" fill="#aa0000" id="svg_37" height="20.29514" width="21.17486" y="1.70304" x="1.42011"></rect>
+  <rect ry="3" rx="3" stroke="#ff5555" fill="#aa0000" id="svg_67" height="18.63022" width="19.61118" y="2.53597" x="2.20258"></rect>
+  <line stroke-width="2" fill="none" stroke="#ffffff" id="svg_68" y2="16.85127" x2="17.00646" y1="6.85127" x1="7.00646"></line>
+  <line stroke-width="2" id="svg_70" fill="none" stroke="#ffffff" y2="16.85127" x2="7.00646" y1="6.85127" x1="17.00646"></line>
+ </svg></svg></div>
+		<div class="tool_sep"></div>
+		<div class="push_button" id="tool_group" title="Group Elements [G]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+ <defs>
+  <lineargradient id="xsvg_90430" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#ccddff" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#789fed" stop-opacity="1"></stop>
+  </lineargradient>
+  <lineargradient id="xsvg_92431" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#70a1e5" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#4b6baf" stop-opacity="1"></stop>
+  </lineargradient>
+ </defs>
+  <rect x="13.5" y="0.5" width="2" height="2" fill="#a0a0a0" stroke="#555555" id="svg_79"></rect>
+  <rect x="13.5" y="13.5" width="2" height="2" fill="#a0a0a0" stroke="#555555" id="svg_82"></rect>
+  <rect x="0.5" y="13.5" width="2" height="2" fill="#a0a0a0" stroke="#555555" id="svg_83"></rect>
+  <rect x="2.5" y="2.5" width="8" height="7" fill="#a0a0a0" stroke="#555555" id="svg_85"></rect>
+  <rect x="2.5" y="2.5" width="8" height="7" fill="url(#xsvg_90430)" stroke="url(#xsvg_92431)" id="svg_87"></rect>
+  <rect x="5.5" y="6.5" width="8" height="7" id="svg_84" fill="#7399d6" stroke="url(#xsvg_92431)"></rect>
+  <rect x="0.5" y="0.5" width="2" height="2" id="svg_78" fill="#a0a0a0" stroke="#555555"></rect>
+ </svg></svg></div>
+		<div class="push_button" id="tool_alignleft" title="Align Left"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+	  <rect stroke="#606060" fill="#ffffff" id="svg_4" height="7" width="12" y="2.5" x="2.5"></rect>
+	  <rect stroke="none" fill="#c0c0c0" id="svg_5" height="4" width="11" y="4" x="2"></rect>
+	  <rect id="svg_6" stroke="#606060" fill="#ffffff" height="7" width="18" y="12.5" x="2.5"></rect>
+	  <rect id="svg_7" stroke="none" fill="#c0c0c0" height="4" width="17" y="14" x="2"></rect>
+	  <rect stroke="#c15909" fill="#ef9a23" id="svg_2" height="40" width="2" y="-10" x="1.5"></rect>
+	</svg></svg></div>
+		<div class="push_button" id="tool_aligncenter" title="Align Center"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+	  <rect x="1.5" y="12.5" width="18" height="7" fill="#c0c0c0" stroke="#606060" id="svg_6"></rect>
+	  <rect x="4.5" y="2.5" width="12" height="7" id="svg_4" fill="#c0c0c0" stroke="#606060"></rect>
+	  <rect x="9.5" y="-10" width="2" height="40" id="svg_2" fill="#ef9a23" stroke="#c15909"></rect>
+	  <rect x="2.5" y="13.5" width="16" height="5" fill="none" stroke="#ffffff" id="svg_7"></rect>
+	  <rect x="5.5" y="3.5" width="10" height="5" id="svg_5" fill="none" stroke="#ffffff"></rect>
+	</svg></svg></div>
+		<div class="push_button" id="tool_alignright" title="Align Right"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+	  <rect x="7.5" y="2.5" width="12" height="7" id="svg_4" fill="#ffffff" stroke="#606060"></rect>
+	  <rect x="9" y="4" width="11" height="4" id="svg_5" fill="#c0c0c0" stroke="none"></rect>
+	  <rect x="1.5" y="12.5" width="18" height="7" fill="#ffffff" stroke="#606060" id="svg_6"></rect>
+	  <rect x="3" y="14" width="17" height="4" fill="#c0c0c0" stroke="none" id="svg_7"></rect>
+	  <rect x="18.5" y="-10" width="2" height="40" id="svg_2" fill="#ef9a23" stroke="#c15909"></rect>
+	</svg></svg></div>
+		<div class="push_button" id="tool_aligntop" title="Align Top"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+	  <g transform="rotate(90, 11, 11)" id="svg_1">
+	   <rect x="2.5" y="3.5" width="12" height="7" id="svg_4" fill="#ffffff" stroke="#606060"></rect>
+	   <rect x="2" y="5" width="11" height="4" id="svg_5" fill="#c0c0c0" stroke="none"></rect>
+	   <rect x="2.5" y="13.5" width="18" height="7" fill="#ffffff" stroke="#606060" id="svg_6"></rect>
+	   <rect x="2" y="15" width="17" height="4" fill="#c0c0c0" stroke="none" id="svg_7"></rect>
+	   <rect x="1.5" y="-9" width="2" height="40" id="svg_2" fill="#ef9a23" stroke="#c15909"></rect>
+	  </g>
+	</svg></svg></div>
+		<div class="push_button" id="tool_alignmiddle" title="Align Middle"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+  <g transform="rotate(90, 12, 11.5)" id="svg_1">
+   <rect id="svg_6" stroke="#606060" fill="#c0c0c0" height="7" width="18" y="14" x="3"></rect>
+   <rect stroke="#606060" fill="#c0c0c0" id="svg_4" height="7" width="12" y="4" x="6"></rect>
+   <rect stroke="#c15909" fill="#ef9a23" id="svg_2" height="40" width="2" y="-8.5" x="11"></rect>
+   <rect id="svg_7" stroke="#ffffff" fill="none" height="5" width="16" y="15" x="4"></rect>
+   <rect stroke="#ffffff" fill="none" id="svg_5" height="5" width="10" y="5" x="7"></rect>
+   </g>
+</svg></svg></div>
+		<div class="push_button" id="tool_alignbottom" title="Align Bottom"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+  <g transform="rotate(90, 11, 11)" id="svg_1">
+   <rect stroke="#606060" fill="#ffffff" id="svg_4" height="7" width="12" y="2.5" x="7.5"></rect>
+   <rect stroke="none" fill="#c0c0c0" id="svg_5" height="4" width="11" y="4" x="9"></rect>
+   <rect id="svg_6" stroke="#606060" fill="#ffffff" height="7" width="18" y="12.5" x="1.5"></rect>
+   <rect id="svg_7" stroke="none" fill="#c0c0c0" height="4" width="17" y="14" x="3"></rect>
+   <rect stroke="#c15909" fill="#ef9a23" id="svg_2" height="40" width="2" y="-10" x="18.5"></rect>
+   </g>
+</svg></svg></div>
+		<label id="tool_align_relative"> 
+			<span id="relativeToLabel">relative to:</span>
+			<select id="align_relative_to" title="Align relative to ..." autocomplete="off">
+			<option id="selected_objects" value="selected">selected objects</option>
+			<option id="largest_object" value="largest">largest object</option>
+			<option id="smallest_object" value="smallest">smallest object</option>
+			<option id="page" value="page">page</option>
+			</select>
+		</label>
+		<div class="tool_sep"></div>
+
+	</div>
+
+	<div id="g_panel" style="display: none;">
+		<div class="tool_sep"></div>
+		<div class="push_button" id="tool_ungroup" title="Ungroup Elements [G]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+ <defs>
+  <lineargradient id="xsvg_90440" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#ccddff" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#789fed" stop-opacity="1"></stop>
+  </lineargradient>
+  <lineargradient id="xsvg_92441" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#70a1e5" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#4b6baf" stop-opacity="1"></stop>
+  </lineargradient>
+ </defs>
+  <rect x="2.5" y="2.5" width="8" height="7" fill="url(#xsvg_90440)" stroke="url(#xsvg_92441)" id="svg_87"></rect>
+  <rect x="5.5" y="6.5" width="8" height="7" id="svg_84" fill="#7399d6" stroke="url(#xsvg_92441)"></rect>
+  <rect x="9.5" y="1.5" width="2" height="2" fill="#a0a0a0" stroke="#555555" id="svg_79"></rect>
+  <rect x="1.5" y="8.5" width="2" height="2" fill="#a0a0a0" stroke="#555555" id="svg_83"></rect>
+  <rect x="1.5" y="1.5" width="2" height="2" id="svg_78" fill="#a0a0a0" stroke="#555555"></rect>
+  <rect id="svg_93" x="12.5" y="5.5" width="2" height="2" fill="#a0a0a0" stroke="#555555"></rect>
+  <rect id="svg_94" x="12.5" y="12.5" width="2" height="2" fill="#a0a0a0" stroke="#555555"></rect>
+  <rect id="svg_95" x="4.5" y="12.5" width="2" height="2" fill="#a0a0a0" stroke="#555555"></rect>
+  <rect id="svg_96" x="4.5" y="5.5" width="2" height="2" fill="#a0a0a0" stroke="#555555"></rect>
+</svg></svg></div>
+	</div>
+
+	<div id="rect_panel" style="display: none;">
+		<div class="toolset">
+			<label id="rect_width_tool" title="Change rectangle width">
+				<span id="rwidthLabel" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+	  <path id="svg_6" d="m19,42.5l-7.5,7.5l7.5,7.5l0,-15zm0,7.5l62,0l0,-7.5l7.5,7.5l-7.5,7.5l0,-7.5" stroke-width="8" stroke="#000000" fill="#000000"></path>
+	</svg></svg></span>
+				<input id="rect_width" class="attr_changer" size="3" data-attr="width" autocomplete="off">
+			</label>
+			<label id="rect_height_tool" title="Change rectangle height">
+				<span id="rheightLabel" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+	  <path transform="rotate(90, 50, 50)" fill="#000000" stroke="#000000" stroke-width="8" d="m19,42.5l-7.5,7.5l7.5,7.5l0,-15zm0,7.5l62,0l0,-7.5l7.5,7.5l-7.5,7.5l0,-7.5" id="svg_6"></path>
+	</svg></svg></span>
+				<input id="rect_height" class="attr_changer" size="3" data-attr="height" autocomplete="off">
+			</label>
+		</div>
+		<label id="cornerRadiusLabel" title="Change Rectangle Corner Radius">
+			<span class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+  <rect stroke="#404040" fill="none" stroke-width="0.5" x="2.37501" y="2.4375" width="43.9375" height="43.9375" id="svg_1" rx="13" ry="13"></rect>
+  <path fill="none" stroke="#000000" d="m2.43674,15.88952l13.73722,0l0.08978,-13.46483m0.08978,14.08493" id="svg_3"></path>
+  <line fill="none" stroke="#000000" x1="16.35107" y1="15.88934" x2="5.20504" y2="5.20504" id="svg_4" stroke-dasharray="2,2"></line>
+</svg></svg></span>
+			<input id="rect_rx" size="3" value="0" type="text" data-attr="Corner Radius" autocomplete="off" class="spin-button">
+		</label>
+	</div>
+
+	<div id="image_panel" style="display: none;">
+	<div class="toolset">
+		<label><span id="iwidthLabel" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+	  <path id="svg_6" d="m19,42.5l-7.5,7.5l7.5,7.5l0,-15zm0,7.5l62,0l0,-7.5l7.5,7.5l-7.5,7.5l0,-7.5" stroke-width="8" stroke="#000000" fill="#000000"></path>
+	</svg></svg></span>
+		<input id="image_width" class="attr_changer" title="Change image width" size="3" data-attr="width" autocomplete="off">
+		</label>
+		<label><span id="iheightLabel" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+	  <path transform="rotate(90, 50, 50)" fill="#000000" stroke="#000000" stroke-width="8" d="m19,42.5l-7.5,7.5l7.5,7.5l0,-15zm0,7.5l62,0l0,-7.5l7.5,7.5l-7.5,7.5l0,-7.5" id="svg_6"></path>
+	</svg></svg></span>
+		<input id="image_height" class="attr_changer" title="Change image height" size="3" data-attr="height" autocomplete="off">
+		</label>
+	</div>
+	<div class="toolset">
+		<label id="tool_image_url">url:
+			<input id="image_url" type="text" title="Change URL" size="35" autocomplete="off">
+		</label>
+		<label id="tool_change_image">
+			<button id="change_image_url" style="display:none;">Change Image</button>
+			<span id="url_notice" title="NOTE: This image cannot be embedded. It will depend on this path to be displayed"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient y2="0.98047" x2="0.57813" y1="0.44922" x1="0.56641" id="xsvg_110680">
+   <stop stop-opacity="1" stop-color="#ffff00" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#9e9e00" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <path d="m1.42857,21.55559l10.71429,-19.36489l10.71429,19.20352l-21.42857,0.16137z" id="svg_44" fill="url(#xsvg_110680)" stroke="#916d1f" stroke-width="2"></path>
+  <path stroke="none" fill="#000000" id="svg_103" d="m11.98371,14.68571c-0.57143,-3.82857 -1.82857,-6.4 0.11429,-6.4c2.11429,0 0.74286,2.57143 0.11429,6.4l-0.22857,0z"></path>
+  <circle stroke="none" fill="#000000" id="svg_104" r="1.17578" cy="17.37143" cx="12.14308"></circle>
+ </svg></svg></span>
+		</label>
+	</div>
+  </div>
+
+	<div id="circle_panel" style="display: none;">
+		<div class="toolset">
+			<label id="tool_circle_cx">cx:
+			<input id="circle_cx" class="attr_changer" title="Change circle&#39;s cx coordinate" size="3" data-attr="cx" autocomplete="off">
+			</label>
+			<label id="tool_circle_cy">cy:
+			<input id="circle_cy" class="attr_changer" title="Change circle&#39;s cy coordinate" size="3" data-attr="cy" autocomplete="off">
+			</label>
+		</div>
+		<div class="toolset">
+			<label id="tool_circle_r">r:
+			<input id="circle_r" class="attr_changer" title="Change circle&#39;s radius" size="3" data-attr="r" autocomplete="off">
+			</label>
+		</div>
+	</div>
+
+	<div id="ellipse_panel" style="display: none;">
+		<div class="toolset">
+			<label id="tool_ellipse_cx">cx:
+			<input id="ellipse_cx" class="attr_changer" title="Change ellipse&#39;s cx coordinate" size="3" data-attr="cx" autocomplete="off">
+			</label>
+			<label id="tool_ellipse_cy">cy:
+			<input id="ellipse_cy" class="attr_changer" title="Change ellipse&#39;s cy coordinate" size="3" data-attr="cy" autocomplete="off">
+			</label>
+		</div>
+		<div class="toolset">
+			<label id="tool_ellipse_rx">rx:
+			<input id="ellipse_rx" class="attr_changer" title="Change ellipse&#39;s x radius" size="3" data-attr="rx" autocomplete="off">
+			</label>
+			<label id="tool_ellipse_ry">ry:
+			<input id="ellipse_ry" class="attr_changer" title="Change ellipse&#39;s y radius" size="3" data-attr="ry" autocomplete="off">
+			</label>
+		</div>
+	</div>
+
+	<div id="line_panel" style="display: none;">
+		<div class="toolset">
+			<label id="tool_line_x1">x1:
+			<input id="line_x1" class="attr_changer" title="Change line&#39;s starting x coordinate" size="3" data-attr="x1" autocomplete="off">
+			</label>
+			<label id="tool_line_y1">y1:
+			<input id="line_y1" class="attr_changer" title="Change line&#39;s starting y coordinate" size="3" data-attr="y1" autocomplete="off">
+			</label>
+		</div>
+		<div class="toolset">
+			<label id="tool_line_x2">x2:
+			<input id="line_x2" class="attr_changer" title="Change line&#39;s ending x coordinate" size="3" data-attr="x2" autocomplete="off">
+			</label>
+			<label id="tool_line_y2">y2:
+			<input id="line_y2" class="attr_changer" title="Change line&#39;s ending y coordinate" size="3" data-attr="y2" autocomplete="off">
+			</label>
+		</div>
+	</div>
+
+	<div id="text_panel" style="display: none;">
+		<div class="toolset">
+			<div class="tool_button" id="tool_bold" title="Bold Text [B]"><span></span>B</div>
+			<div class="tool_button" id="tool_italic" title="Italic Text [I]"><span></span>i</div>
+		</div>
+		
+		<div class="toolset" id="tool_font_family">
+			<label>
+				<!-- Font family -->
+				<input id="font_family" type="text" title="Change Font Family" size="12" autocomplete="off">
+			</label>
+			<div id="font_family_dropdown" class="dropdown">
+				<button><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="7" height="7" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></button>
+				<ul>
+					<li style="font-family:serif">Serif</li>
+					<li style="font-family:sans-serif">Sans-serif</li>
+					<li style="font-family:cursive">Cursive</li>
+					<li style="font-family:fantasy">Fantasy</li>
+					<li style="font-family:monospace">Monospace</li>
+				</ul>
+			</div>
+		</div>
+
+		<label id="tool_font_size" title="Change Font Size">
+			<span id="font_sizeLabel" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <text fill="#606060" stroke="none" x="14.451" y="41.4587" id="svg_2" font-size="26" font-family="serif" text-anchor="middle">T</text>
+  <text fill="#000000" stroke="none" x="28.853" y="41.8685" font-size="52" font-family="serif" text-anchor="middle" id="svg_3">T</text>
+</svg></svg></span>
+			<input id="font_size" size="3" value="0" type="text" autocomplete="off" class="spin-button">
+		</label>
+		
+		<!-- Not visible, but still used -->
+		<input id="text" type="text" size="35" autocomplete="off">
+	</div>
+	
+	<div id="path_node_panel" style="display: none;">
+		<div class="tool_sep"></div>
+		<div class="tool_button" id="tool_node_link" title="Link Control Points"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path stroke-width="2" id="svg_102" d="m9.875,23c-2,-4.25 -1.6875,-7.375 1.6875,-10.5c3.375,-3.125 7.5625,-2.75 11.0625,2" stroke="#8dd35f" fill="none"></path>
+  <line fill="none" stroke="#606060" id="svg_109" y2="4" x2="19" y1="19" x1="4"></line>
+  <circle stroke="#0000ff" fill="#00ffff" id="svg_111" r="2.17578" cy="11.5" cx="11.5"></circle>
+  <circle stroke-width="0.5" id="svg_121" stroke="#0000ff" fill="#00ffff" r="2.26172" cy="4" cx="19"></circle>
+  <circle id="svg_123" stroke-width="0.5" stroke="#0000ff" fill="#00ffff" r="2.26172" cy="19" cx="4"></circle>
+</svg></svg></div>
+		<div class="tool_sep"></div>
+		<label id="tool_node_x">x:
+			<input id="path_node_x" class="attr_changer" title="Change node&#39;s x coordinate" size="3" data-attr="x" autocomplete="off">
+		</label>
+		<label id="tool_node_y">y:
+			<input id="path_node_y" class="attr_changer" title="Change node&#39;s y coordinate" size="3" data-attr="y" autocomplete="off">
+		</label>
+		
+		<select id="seg_type" title="Change Segment type" autocomplete="off">
+			<option id="straight_segments" selected="selected" value="4">Straight</option>
+			<option id="curve_segments" value="6">Curve</option>
+		</select>
+		<div class="tool_button" id="tool_node_clone" title="Clone Node"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path stroke-width="2" id="svg_102" d="m4.1953,19.42128c15.49391,-15.53349 -0.21065,0.1581 15.61084,-15.57944" stroke="#8dd35f" fill="none"></path>
+  <circle stroke-width="0.5" id="svg_121" stroke="#0000ff" fill="#00ffff" r="2.26172" cy="4" cx="19.75"></circle>
+  <circle id="svg_123" stroke-width="0.5" stroke="#0000ff" fill="#00ffff" r="2.26172" cy="19.40299" cx="4.0653"></circle>
+  <circle id="svg_7" stroke-width="0.5" stroke="#0000ff" fill="#00ffff" r="2.26172" cy="11.625" cx="11.9375"></circle>
+  <line stroke-linecap="round" id="svg_5" y2="14.46579" x2="9.66571" y1="4.02238" x1="9.7824" stroke-dasharray="null" stroke-width="2" stroke="#0000ff" fill="#0000ff"></line>
+  <line stroke-linecap="round" id="svg_4" y2="9.45264" x2="15.14996" y1="9.3943" x1="4.47318" stroke-dasharray="null" stroke-width="2" stroke="#0000ff" fill="#0000ff"></line>
+</svg></svg></div>
+		<div class="tool_button" id="tool_node_delete" title="Delete Node"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path stroke-width="2" id="svg_102" d="m4.1953,19.42128c15.49391,-15.53349 -0.21065,0.1581 15.61084,-15.57944" stroke="#8dd35f" fill="none"></path>
+  <circle stroke-width="0.5" id="svg_121" stroke="#0000ff" fill="#00ffff" r="2.26172" cy="4" cx="19.75"></circle>
+  <circle id="svg_123" stroke-width="0.5" stroke="#0000ff" fill="#00ffff" r="2.26172" cy="19.40299" cx="4.0653"></circle>
+  <circle id="svg_7" stroke-width="0.5" stroke="#0000ff" fill="#00ffff" r="2.26172" cy="11.625" cx="11.9375"></circle>
+  <g transform="rotate(-45.291072845458984 9.81157112121582,9.244086265563965) " id="svg_6">
+   <line stroke-linecap="round" id="svg_4" y2="9.45264" x2="15.14996" y1="9.3943" x1="4.47318" stroke-dasharray="null" stroke-width="2" stroke="#ff0000" fill="none"></line>
+   <line stroke-linecap="round" id="svg_5" y2="14.46579" x2="9.66571" y1="4.02238" x1="9.7824" stroke-dasharray="null" stroke-width="2" stroke="#ff0000" fill="none"></line>
+  </g>
+</svg></svg></div>
+		<div class="tool_button" id="tool_openclose_path" title="Open/close sub-path"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+ <g>
+  <path stroke="#000" stroke-width="15" fill="#ffc8c8" d="m123.5,38l-84,106l27,115l166,2l29,-111"></path>
+  <line x1="276.5" y1="153" x2="108.5" y2="24" stroke="#000" stroke-width="10" fill="none"></line>
+  <g stroke-width="15" stroke="#00f" fill="#0ff">
+   <circle r="30" cy="41" cx="123"></circle>
+   <circle r="30" cy="146" cx="40"></circle>
+   <circle r="30" cy="260" cx="69"></circle>
+   <circle r="30" cy="260" cx="228"></circle>
+   <circle r="30" cy="148" cx="260"></circle>
+  </g>
+  <g stroke="#A00" stroke-width="15" fill="none">
+   <line x1="168" y1="24" x2="210" y2="150"></line>
+   <line x1="210" y1="24" x2="168" y2="150"></line>
+  </g>
+ </g>
+</svg></svg></div>
+		<div class="tool_button" id="tool_add_subpath" title="Add sub-path"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124">
+ <defs>
+  <lineargradient id="xsvg_4130" x1="0.33594" y1="0.28125" x2="1" y2="1">
+   <stop offset="0" stop-color="#ffffff" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#33a533" stop-opacity="1"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <path d="m6,103l55,-87c85,33.64 -26,37.12 55,87l-110,0z" id="svg_1" fill="url(#xsvg_4130)" stroke="#000000" stroke-width="4" stroke-dasharray="null"></path>
+  <g id="svg_7">
+   <circle stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="#ffffff" id="svg_6" r="22.63281" cy="88.5" cx="45.5"></circle>
+   <line stroke-dasharray="null" stroke-width="7" stroke="#000000" id="svg_2" y2="104.03768" x2="45.5" y1="72.96232" x1="45.5"></line>
+   <line stroke-dasharray="null" stroke-width="7" stroke="#000000" id="svg_3" y2="88.5" x2="61.03768" y1="88.5" x1="29.96232"></line>
+  </g>
+ </g>
+ </svg></svg></div>
+	</div>
+	
+<div id="marker_panel" class="toolset" style="display: none;"><label><span id="start_marker_label">s:</span><input id="start_marker" title="Start marker" size="3" value="" type="text"></label><div id="start_marker_list" class="dropdown toolset" title="Select start marker type"><div id="cur_start_marker_list" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-50,0l100,0"></path>
+        </svg></svg></div><button><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="7" height="7" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></button></div><label><span id="mid_marker_label">m:</span><input id="mid_marker" title="Middle marker" size="3" value="" type="text"></label><div id="mid_marker_list" class="dropdown toolset" title="Select mid marker type"><div id="cur_mid_marker_list" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-50,0l100,0"></path>
+        </svg></svg></div><button><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="7" height="7" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></button></div><label><span id="end_marker_label">e:</span><input id="end_marker" title="End marker" size="3" value="" type="text"></label><div id="end_marker_list" class="dropdown toolset" title="Select end marker type"><div id="cur_end_marker_list" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-50,0l100,0"></path>
+        </svg></svg></div><button><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="7" height="7" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></button></div></div></div> <!-- tools_top -->
+
+<div id="tools_left" class="tools_panel">
+	<div class="tool_button_current" id="tool_select" title="Select Tool [1]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	  <path stroke="#ffffff" fill="#000000" id="svg_13" d="m7.38168,2.46948l0.07502,17.03258l3.30083,-2.62617l2.62566,5.62751l4.20105,-2.62617l-3.30082,-4.80214l4.57614,-0.37517l-11.47787,-12.23044z"></path>
+	</svg></svg></div>
+	<div class="tool_button" id="tool_fhpath" title="Pencil Tool [2]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 52">
+  <defs>
+   <lineargradient id="xsvg_990" x1="0.3046" y1="0.1093" x2="0.6132" y2="0.3945">
+    <stop offset="0.0" stop-color="#f9d225" stop-opacity="1"></stop>
+    <stop offset="1.0" stop-color="#bf5f00" stop-opacity="1"></stop>
+   </lineargradient>
+  </defs>
+  <path d="M31.5,0 l-8.75,20.25 l0.75,24 l16.5,-16.5 l6,-12.5" id="svg_2" fill="url(#xsvg_990)" stroke="#000000" stroke-width="2" fill-opacity="1" stroke-opacity="1"></path>
+  <path d="M39.5,28.5 c-2,-9.25 -10.25,-11.75 -17,-7.4375 l0.4843,24.4414z" id="svg_10" fill="#fce0a9" stroke="#000000" stroke-width="2" fill-opacity="1" stroke-opacity="1"></path>
+  <path d="M26.9318,41.1745 c-0.4491,-2.3511 -2.3021,-2.9866 -3.8181,-1.8905 l0.1087,6.2126z" fill="#000000" stroke="#000000" stroke-width="2" fill-opacity="1" stroke-opacity="1" id="svg_11"></path>
+  <path d="M2.3132,4.6197 c12.4998,-1.6891 10.4729,7.0945 0,21.6215 c22.9729,-4.0539 12.1620,5.4053 12.1620,13.1756 c-0.3377,4.0539 8.7836,21.9594 26.0135,-1.3513" id="svg_12" fill="none" stroke="#000000" stroke-width="2" fill-opacity="1" stroke-opacity="1"></path>
+</svg></svg></div>
+	<div class="tool_button" id="tools_line_show" title="Line Tool [3] / Connect two objects [Shift+3]" data-curopt="#tool_line"><div class="flyout_arrow_horiz"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="3.2" height="3.2" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 50">
+	  <path stroke="#000000" fill="#000000" d="m0,0l0,50l25,-25l-25,-25z"></path>
+	</svg></svg></div><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	 <defs>
+	  <lineargradient id="xsvg_16100" x1="0.46484" y1="0.15625" x2="0.9375" y2="0.39453">
+	   <stop offset="0" stop-color="#f2feff" stop-opacity="1"></stop>
+	   <stop offset="1" stop-color="#14609b" stop-opacity="1"></stop>
+	  </lineargradient>
+	  <lineargradient id="xsvg_19101" x1="0.18359" y1="0.26172" x2="0.77734" y2="0.56641">
+	   <stop offset="0" stop-color="#ffffff" stop-opacity="1"></stop>
+	   <stop offset="1" stop-color="#fce564" stop-opacity="1"></stop>
+	  </lineargradient>
+	 </defs>
+	  <line x1="0.99844" y1="1.49067" x2="12.97691" y2="21.14149" id="svg_5" stroke="#000000" fill="none"></line>
+	  <path d="m14.05272,13.68732l-1.46451,7.52632l4.03769,-6.32571" id="svg_6" fill="#a0a0a0" stroke="#000000"></path>
+	  <path d="m13.61215,10.26563c-0.38567,1.05257 -0.60723,2.40261 -0.50403,3.125l4.33468,1.81452c0.46153,-0.30769 1.6129,-1.71371 1.6129,-2.52016" id="svg_7" fill="url(#xsvg_19101)" stroke="#000000"></path>
+	  <path d="m16.61335,1.00028l-3.67325,8.60247l7.10285,3.47318l3.17783,-7.20549" id="svg_8" fill="url(#xsvg_16100)" stroke="#000000"></path>
+	</svg></svg></div>
+	<div class="tool_button flyout_current" id="tools_rect_show" title="Rectangle[4] / Square[Shift+4] / Free-Hand Rectangle" data-curopt="#tool_rect">
+		<div class="flyout_arrow_horiz"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="3.2" height="3.2" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 50">
+	  <path stroke="#000000" fill="#000000" d="m0,0l0,50l25,-25l-25,-25z"></path>
+	</svg></svg></div>
+	<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient y2="1" x2="1" y1="0.10156" x1="0.36328" id="xsvg_240">
+   <stop stop-opacity="1" stop-color="#ffffff" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#3b7e9b" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <rect transform="matrix(1, 0, 0, 1, 0, 0)" stroke="#000000" fill="url(#xsvg_240)" id="svg_1" height="12" width="20" y="5.5" x="1.5"></rect>
+ </svg></svg></div>
+	<div class="tool_button flyout_current" id="tools_ellipse_show" title="Ellipse[5] / Circle[Shift+5] / Free-Hand Ellipse" data-curopt="#tool_ellipse">
+		<div class="flyout_arrow_horiz"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="3.2" height="3.2" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 50">
+	  <path stroke="#000000" fill="#000000" d="m0,0l0,50l25,-25l-25,-25z"></path>
+	</svg></svg></div>
+	<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 54">
+ <defs>
+  <lineargradient y2="1.0" x2="1.0" y1="0.1875" x1="0.171875" id="xsvg_470">
+   <stop stop-opacity="1" stop-color="#ffffff" offset="0.0"></stop>
+   <stop stop-opacity="1" stop-color="#ff6666" offset="1.0"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <ellipse stroke-opacity="1" fill-opacity="1" stroke-width="2" stroke="#000000" fill="url(#xsvg_470)" id="svg_1" rx="23" ry="15" cy="27" cx="27"></ellipse>
+ </g>
+</svg></svg></div>
+	<div class="tool_button" id="tool_path" title="Path Tool [6]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124">
+ <defs>
+  <lineargradient y2="1" x2="1" y1="0.28125" x1="0.33594" id="xsvg_4120">
+   <stop stop-opacity="1" stop-color="#ffffff" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#33a533" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <path stroke-dasharray="null" stroke-width="4" stroke="#000000" fill="url(#xsvg_4120)" id="svg_1" d="m6,103l55,-87c85,33.64 -26,37.12 55,87l-110,0z"></path>
+ </svg></svg></div>
+	<div class="tool_button" id="tool_text" title="Text Tool [7]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 128">
+	  <text x="58" y="120" id="svg_1" fill="#000000" stroke="none" font-size="120pt" font-family="sans-serif" text-anchor="middle" fill-opacity="1" stroke-opacity="1" font-weight="bold">A</text>
+	  <line x1="136" y1="7" x2="136" y2="121" id="svg_2" stroke="#000000" fill="none" fill-opacity="1" stroke-opacity="1" stroke-width="5"></line>
+	  <line x1="120" y1="4" x2="152" y2="4" id="svg_3" stroke="#000000" stroke-width="5" fill="none" fill-opacity="1" stroke-opacity="1"></line>
+	 <line x1="120" y1="124" x2="152" y2="124" stroke="#000000" stroke-width="5" fill="none" fill-opacity="1" stroke-opacity="1" id="svg_4"></line>
+	</svg></svg></div>
+	<div class="tool_button" id="tool_image" title="Image Tool [8]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient y2="1" x2="1" y1="0" x1="1" id="xsvg_25160">
+   <stop stop-opacity="1" stop-color="#10284c" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#5374ad" offset="1"></stop>
+  </lineargradient>
+  <lineargradient y2="0.75781" x2="0.99609" y1="0" x1="1" id="xsvg_23161">
+   <stop stop-opacity="1" stop-color="#162e84" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#97c4ef" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <rect x="1" y="3.83333" width="22" height="17" id="svg_18" fill="#202020" stroke="none"></rect>
+  <rect stroke-width="1.2" stroke="#ffffff" fill="#232947" id="svg_15" height="14" width="19" y="5.33333" x="2.5"></rect>
+  <rect fill="url(#xsvg_23161)" id="svg_20" height="7.02244" width="15.96424" y="6.7266" x="4"></rect>
+  <rect fill="url(#xsvg_25160)" id="svg_24" height="4.02393" width="15.96303" y="13.77454" x="4"></rect>
+  <circle fill="#ffffad" id="svg_26" r="1.83333" cy="9.82002" cx="7.13254"></circle>
+  <path d="m14.5696,13.77458l0.70243,-4.85313l-3.12899,4.85313l2.42656,0z" id="svg_14" fill="#404040" stroke="none"></path>
+  <path d="m15.27203,8.98531c2.74584,0.06386 2.42657,4.21456 -0.63857,4.85313c0.70243,-1.27714 1.66028,-3.63985 0.63857,-4.85313z" id="svg_17" fill="#404040" stroke="none"></path>
+</svg></svg></div>
+	<div class="tool_button" id="tool_zoom" title="Zoom Tool [9]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+	 <defs>
+	  <lineargradient id="xsvg_30170" x1="0" y1="0" x2="1" y2="0">
+	   <stop offset="0" stop-color="#d3d3d3" stop-opacity="1"></stop>
+	   <stop offset="1" stop-color="#424242" stop-opacity="1"></stop>
+	  </lineargradient>
+	 </defs>
+	  <path d="m107.14774,101.03477l-0.64774,43.96523c5.00857,4.72089 14.00811,5.27188 19,0l-0.31667,-44.16l-9.61514,-19.84l-8.42046,20.03477z" id="svg_29" fill="url(#xsvg_30170)" stroke="#202020" stroke-width="2" transform="rotate(-45, 116, 114)"></path>
+	  <circle cx="58" cy="58" r="51" id="svg_22" fill="#c0c0c0" stroke="#202020" stroke-width="5"></circle>
+	  <circle cx="58" cy="58" r="43" id="svg_27" fill="#aaccff" stroke="none"></circle>
+	  <path d="m15.68604,61.46511c38.13954,17.67442 48.13954,15.34883 85.11628,-0.46511c1.39536,18.60465 -19.30231,41.86047 -42.7907,40.93023c-21.6279,-0.93023 -42.7907,-21.86046 -42.32558,-40.46511z" id="svg_28" fill="#8cbaff" stroke="none"></path>
+	</svg></svg></div>
+	
+	<div style="display: none">
+		
+		
+		
+		
+		
+		
+	</div>
+<div id="tool_eyedropper" title="Eye Dropper Tool" class="tool_button disabled"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <radialgradient id="xeyedropper_svg_600" cx="0.5" cy="0.5" r="0.5">
+   <stop offset="0" stop-color="#ffffff" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#e5e5e5" stop-opacity="0.38"></stop>
+  </radialgradient>
+  <lineargradient id="xeyedropper_svg_1501" x1="0" y1="0" x2="0.58594" y2="0.55078">
+   <stop offset="0" stop-color="#ffffff" stop-opacity="0.57"></stop>
+   <stop offset="1" stop-color="#000056" stop-opacity="1"></stop>
+  </lineargradient>
+  <lineargradient id="xeyedropper_svg_1902" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#ffffff" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#ffffff" stop-opacity="0"></stop>
+  </lineargradient>
+ </defs>
+ <g display="inline">
+  <title>Layer 1</title>
+  <path d="m193.899994,73l-119.899979,118l-15,39.5l10.25,4.5l43.750015,-20l108.999969,-112l-28.100006,-30z" id="svg_3" fill="none" stroke="#000000" stroke-width="5"></path>
+  <path d="m58.649994,232c-2.75,28.200012 -26.399994,28.950012 -21.899994,59c4.5,30.049988 55,28 55.5,-1.25c0.5,-29.25 -20.25,-28.75 -22.25,-54.75l-11.350006,-3z" id="svg_4" fill="#aa56ff" stroke="#000000" stroke-width="7"></path>
+  <path d="m45.474976,269.275024l13.775024,0.474976l-0.75,16.75l-14.25,-1.25l1.224976,-15.974976z" id="svg_5" fill="url(#xeyedropper_svg_600)" stroke-width="5" fill-opacity="0.73"></path>
+  <path d="m217.899994,46c21.5,-101.549999 141.600006,20.449997 28.100006,33l-5,44l-63,-66l39.899994,-11z" id="svg_2" fill="#000000" stroke-width="5"></path>
+  <path d="m206.825012,61.075008c3.712494,-2.46249 7.637482,-3.53751 14.424988,-5.575008c10.125,-16.5 32.875,-41.5 40.5,-35c7.625,6.5 -21.25,35.625 -37.5,39.25c-5.5,10.125 -8,13.875 -17.25,16.5c-2.837494,-8.162514 -4.262482,-12.337486 -0.174988,-15.174992z" id="svg_7" fill="url(#xeyedropper_svg_1501)" stroke-width="5"></path>
+  <path d="m133.049988,134.75l46.950012,9.25l-66,70l-42.5,20.5l-11.5,-5l14,-37.5l59.049988,-57.25z" id="svg_11" fill="#aa56ff" stroke="#000000" stroke-width="7"></path>
+  <path d="m71.425034,212.350006l9.050888,-20.022537l51.516724,-49.327469l8.507355,0.97197l-69.074966,68.378036z" id="svg_16" fill="url(#xeyedropper_svg_1902)" stroke-width="5"></path>
+ </g>
+</svg></svg></div></div> <!-- tools_left -->
+
+<div id="tools_bottom" class="tools_panel">
+
+    <!-- Zoom buttons -->
+	<div id="zoom_panel" class="toolset" title="Change zoom level">
+		<label>
+		<span id="zoomLabel" class="zoom_tool icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+	 <defs>
+	  <lineargradient id="xsvg_30170" x1="0" y1="0" x2="1" y2="0">
+	   <stop offset="0" stop-color="#d3d3d3" stop-opacity="1"></stop>
+	   <stop offset="1" stop-color="#424242" stop-opacity="1"></stop>
+	  </lineargradient>
+	 </defs>
+	  <path d="m107.14774,101.03477l-0.64774,43.96523c5.00857,4.72089 14.00811,5.27188 19,0l-0.31667,-44.16l-9.61514,-19.84l-8.42046,20.03477z" id="svg_29" fill="url(#xsvg_30170)" stroke="#202020" stroke-width="2" transform="rotate(-45, 116, 114)"></path>
+	  <circle cx="58" cy="58" r="51" id="svg_22" fill="#c0c0c0" stroke="#202020" stroke-width="5"></circle>
+	  <circle cx="58" cy="58" r="43" id="svg_27" fill="#aaccff" stroke="none"></circle>
+	  <path d="m15.68604,61.46511c38.13954,17.67442 48.13954,15.34883 85.11628,-0.46511c1.39536,18.60465 -19.30231,41.86047 -42.7907,40.93023c-21.6279,-0.93023 -42.7907,-21.86046 -42.32558,-40.46511z" id="svg_28" fill="#8cbaff" stroke="none"></path>
+	</svg></svg></span>
+		<input id="zoom" size="3" value="100" type="text" autocomplete="off" class="spin-button">
+		</label>
+		<div id="zoom_dropdown" class="dropdown dropup">
+			<button><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="7" height="7" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></button>
+			<ul>
+				<li>1000%</li>
+				<li>400%</li>
+				<li>200%</li>
+				<li>100%</li>
+				<li>50%</li>
+				<li>25%</li>
+				<li id="fit_to_canvas" data-val="canvas">Fit to canvas</li>
+				<li id="fit_to_sel" data-val="selection">Fit to selection</li>
+				<li id="fit_to_layer_content" data-val="layer">Fit to layer content</li>
+				<li id="fit_to_all" data-val="content">Fit to all content</li>
+				<li>100%</li>
+			</ul>
+		</div>
+		<div class="tool_sep"></div>
+	</div>
+
+	<div id="tools_bottom_2">
+		<div id="color_tools">
+			<div class="color_tool" id="tool_fill">
+				<label class="icon_label" for="fill_color" title="Change fill color"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33">
+  <g id="svg_5">
+   <path id="svg_4" d="m17.49167,10.97621c6.9875,-0.325 12.1875,2.70833 12.13333,7.36667l-0.325,10.075c-0.75833,4.0625 -2.275,3.0875 -3.03333,0.10833l0.21667,-9.64166c-0.43333,-0.975 -1.08333,-1.625 -1.95,-1.51667" stroke-linejoin="round" stroke="#606060" fill="#c0c0c0"></path>
+   <path id="svg_1" d="m2.00055,17.1309l10.72445,-10.72445l12.67445,12.13279l-3.52056,0.05389l-9.15389,9.26223l-10.72445,-10.72445z" stroke-linejoin="round" stroke="#000000" fill="#c0c0c0"></path>
+   <path id="svg_3" d="m14.35,13.57621c-0.1625,-3.95417 0.86667,-11.7 -1.84167,-11.59167c-2.70833,0.10833 -2.6,2.05833 -2.16667,6.93333" stroke-linejoin="round" stroke="#000000" fill="none"></path>
+   <circle id="svg_2" r="1.60938" cy="15.20121" cx="14.45833" stroke-linejoin="round" stroke="#000000" fill="none"></circle>
+  </g>
+</svg></svg></label>
+				<div class="color_block">
+					<div id="fill_bg"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	  <line fill="none" stroke="#d40000" id="svg_90" y2="24" x2="24" y1="0" x1="0"></line>
+	  <line id="svg_92" fill="none" stroke="#d40000" y2="24" x2="0" y1="0" x1="24"></line>
+	</svg></svg></div>
+					<div id="fill_color" class="color_block"><svg xmlns="http://www.w3.org/2000/svg" width="16.5"><rect width="100%" height="100%" fill="#FF0000" opacity="1"></rect>				<lineargradient id="gradbox_fill">						<stop stop-color="#000" offset="0.0"></stop>						<stop stop-color="#FF0000" offset="1.0"></stop>				</lineargradient></svg></div>
+				</div>
+			</div>
+		
+			<div class="color_tool" id="tool_stroke">
+				<div class="color_block">
+					<label class="icon_label" title="Change stroke color"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <rect fill="none" stroke="#707070" stroke-width="10" x="8.625" y="8.625" width="32.75" height="32.75" id="svg_1"></rect>
+</svg></svg></label>
+				</div>
+				<div class="color_block">
+					<div id="stroke_bg"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	  <line fill="none" stroke="#d40000" id="svg_90" y2="24" x2="24" y1="0" x1="0"></line>
+	  <line id="svg_92" fill="none" stroke="#d40000" y2="24" x2="0" y1="0" x1="24"></line>
+	</svg></svg></div>
+					<div id="stroke_color" class="color_block" title="Change stroke color"><svg xmlns="http://www.w3.org/2000/svg" width="16.5"><rect width="100%" height="100%" fill="#000000" opacity="1"></rect>				<lineargradient id="gradbox_stroke">						<stop stop-color="#000" offset="0.0"></stop>						<stop stop-color="#FF0000" offset="1.0"></stop>				</lineargradient></svg></div>
+				</div>
+				
+				<label>
+					<input id="stroke_width" title="Change stroke width by 1, shift-click to change by 0.1" size="2" value="5" type="text" data-attr="Stroke Width" autocomplete="off" class="spin-button">
+				</label>
+				
+				<label class="stroke_tool">
+					<select id="stroke_style" title="Change stroke dash style" autocomplete="off">
+						<option selected="selected" value="none">—</option>
+						<option value="2,2">...</option>
+						<option value="5,5">- -</option>
+						<option value="5,2,2,2">- .</option>
+						<option value="5,2,2,2,2,2">- ..</option>
+					</select>
+				</label>	
+
+ 				<div class="stroke_tool dropdown dropup" id="stroke_linejoin">
+ 					<div>
+						<div id="cur_linejoin" title="Linejoin: Miter"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <lineargradient y2="1" x2="0.2" y1="1" x1="0.8" id="xsvg_8610">
+   <stop stop-opacity="1" stop-color="#000000" offset="0"></stop>
+   <stop stop-opacity="0" stop-color="#000000" offset="1"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <path fill="none" stroke="url(#xsvg_8610)" stroke-width="49" d="m-15,-35l75,85l-75,75" id="svg_6"></path>
+  <path transform="rotate(90, 57.8925, 50.2519)" fill="#00ffff" stroke="none" d="m44.83592,50.25187l13.05661,-13.05663l13.05661,13.05663l-13.05661,13.05662l-13.05661,-13.05662z" id="svg_2"></path>
+  <path id="svg_4" d="m-15,-35l75,85l-75,75" stroke-width="3" stroke="#00ffff" fill="none"></path>
+ </g>
+</svg></svg></div>
+						<button><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="7" height="7" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></button>
+					</div>
+ 				</div>
+ 				
+ 				<div class="stroke_tool dropdown dropup" id="stroke_linecap">
+ 					<div>
+						<div id="cur_linecap" title="Linecap: Butt"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <lineargradient id="xsvg_8580" x1="0.8" y1="1" x2="0.2" y2="1">
+   <stop offset="0" stop-color="#000000" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <rect fill="url(#xsvg_8580)" stroke="#a0a0a0" stroke-width="2" x="-15.20196" y="43.5974" width="94.8373" height="50.3728" id="svg_3" transform="rotate(-45, 32.2148, 68.7832)"></rect>
+  <path id="svg_1" d="m6.63133,95.07755l59.17514,-59.17514" stroke-width="3" stroke="#00ffff" fill="none"></path>
+  <path id="svg_2" d="m51.62893,36.10742l13.05662,-13.05662l13.05661,13.05662l-13.05661,13.05662l-13.05662,-13.05662z" stroke="none" fill="#00ffff"></path>
+ </g>
+</svg></svg></div>
+						<button><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="7" height="7" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></button>
+					</div>
+ 				</div>
+			
+				<div id="toggle_stroke_tools" title="Show/hide more stroke tools">
+					&gt;&gt;
+				</div>
+				
+			</div>
+		</div>
+	
+		<div class="toolset" id="tool_opacity" title="Change selected item opacity">
+			<label>
+				<span id="group_opacityLabel" class="icon_label"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+ <defs>
+  <lineargradient y2="0.1" x2="0.9" y1="0.9" x1="0.1" id="xsvg_7230">
+   <stop stop-color="#000000" offset="0"></stop>
+   <stop stop-opacity="0" stop-color="#000000" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <rect id="svg_4" height="50" width="50" y="0" x="0" fill="#ffffff"></rect>
+  <rect id="svg_1" height="25" width="25" y="0" x="0" fill="#a0a0a0"></rect>
+  <rect id="svg_2" height="25" width="25" y="25" x="25" fill="#a0a0a0"></rect>
+  <rect id="svg_3" height="50" width="50" y="0" x="0" stroke-width="2" stroke="url(#xsvg_7230)" fill="url(#xsvg_7230)"></rect>
+ </svg></svg></span>
+				<input id="group_opacity" size="3" value="100" type="text" autocomplete="off" class="spin-button">
+			</label>
+			<div id="opacity_dropdown" class="dropdown dropup">
+				<button><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="7" height="7" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 40">
+	  <path transform="rotate(90, 26, 13)" d="m14,-12l0,50l25,-25l-25,-25z" fill="#000000" stroke="#000000"></path>
+	</svg></svg></button>
+				<ul>
+					<li>0%</li>
+					<li>25%</li>
+					<li>50%</li>
+					<li>75%</li>
+					<li>100%</li>
+					<li class="special"><div id="opac_slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><a href="svg-editor.html" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></a></div></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="tools_bottom_3">
+		<div id="palette_holder"><div id="palette" title="Click to change fill color, shift-click to change stroke color"><div class="palette_item" data-rgb="none"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	  <line fill="none" stroke="#d40000" id="svg_90" y2="24" x2="24" y1="0" x1="0"></line>
+	  <line id="svg_92" fill="none" stroke="#d40000" y2="24" x2="0" y1="0" x1="24"></line>
+	</svg></svg></div><div class="palette_item" style="background-color: #000000;" data-rgb="#000000"></div><div class="palette_item" style="background-color: #3f3f3f;" data-rgb="#3f3f3f"></div><div class="palette_item" style="background-color: #7f7f7f;" data-rgb="#7f7f7f"></div><div class="palette_item" style="background-color: #bfbfbf;" data-rgb="#bfbfbf"></div><div class="palette_item" style="background-color: #ffffff;" data-rgb="#ffffff"></div><div class="palette_item" style="background-color: #ff0000;" data-rgb="#ff0000"></div><div class="palette_item" style="background-color: #ff7f00;" data-rgb="#ff7f00"></div><div class="palette_item" style="background-color: #ffff00;" data-rgb="#ffff00"></div><div class="palette_item" style="background-color: #7fff00;" data-rgb="#7fff00"></div><div class="palette_item" style="background-color: #00ff00;" data-rgb="#00ff00"></div><div class="palette_item" style="background-color: #00ff7f;" data-rgb="#00ff7f"></div><div class="palette_item" style="background-color: #00ffff;" data-rgb="#00ffff"></div><div class="palette_item" style="background-color: #007fff;" data-rgb="#007fff"></div><div class="palette_item" style="background-color: #0000ff;" data-rgb="#0000ff"></div><div class="palette_item" style="background-color: #7f00ff;" data-rgb="#7f00ff"></div><div class="palette_item" style="background-color: #ff00ff;" data-rgb="#ff00ff"></div><div class="palette_item" style="background-color: #ff007f;" data-rgb="#ff007f"></div><div class="palette_item" style="background-color: #7f0000;" data-rgb="#7f0000"></div><div class="palette_item" style="background-color: #7f3f00;" data-rgb="#7f3f00"></div><div class="palette_item" style="background-color: #7f7f00;" data-rgb="#7f7f00"></div><div class="palette_item" style="background-color: #3f7f00;" data-rgb="#3f7f00"></div><div class="palette_item" style="background-color: #007f00;" data-rgb="#007f00"></div><div class="palette_item" style="background-color: #007f3f;" data-rgb="#007f3f"></div><div class="palette_item" style="background-color: #007f7f;" data-rgb="#007f7f"></div><div class="palette_item" style="background-color: #003f7f;" data-rgb="#003f7f"></div><div class="palette_item" style="background-color: #00007f;" data-rgb="#00007f"></div><div class="palette_item" style="background-color: #3f007f;" data-rgb="#3f007f"></div><div class="palette_item" style="background-color: #7f007f;" data-rgb="#7f007f"></div><div class="palette_item" style="background-color: #7f003f;" data-rgb="#7f003f"></div><div class="palette_item" style="background-color: #ffaaaa;" data-rgb="#ffaaaa"></div><div class="palette_item" style="background-color: #ffd4aa;" data-rgb="#ffd4aa"></div><div class="palette_item" style="background-color: #ffffaa;" data-rgb="#ffffaa"></div><div class="palette_item" style="background-color: #d4ffaa;" data-rgb="#d4ffaa"></div><div class="palette_item" style="background-color: #aaffaa;" data-rgb="#aaffaa"></div><div class="palette_item" style="background-color: #aaffd4;" data-rgb="#aaffd4"></div><div class="palette_item" style="background-color: #aaffff;" data-rgb="#aaffff"></div><div class="palette_item" style="background-color: #aad4ff;" data-rgb="#aad4ff"></div><div class="palette_item" style="background-color: #aaaaff;" data-rgb="#aaaaff"></div><div class="palette_item" style="background-color: #d4aaff;" data-rgb="#d4aaff"></div><div class="palette_item" style="background-color: #ffaaff;" data-rgb="#ffaaff"></div><div class="palette_item" style="background-color: #ffaad4;" data-rgb="#ffaad4"></div></div></div>
+	</div>
+	<div id="copyright"><span id="copyrightLabel">Powered by</span> <a href="http://svg-edit.googlecode.com/" target="_blank">SVG-edit v2.5.1</a></div>
+</div>
+
+<div id="option_lists">
+	<ul id="linejoin_opts" style="">
+		<li class="tool_button current" id="linejoin_miter" title="Linejoin: Miter"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <lineargradient y2="1" x2="0.2" y1="1" x1="0.8" id="xxsvg_861010">
+   <stop stop-opacity="1" stop-color="#000000" offset="0"></stop>
+   <stop stop-opacity="0" stop-color="#000000" offset="1"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <path fill="none" stroke="url(#xxsvg_861010)" stroke-width="49" d="m-15,-35l75,85l-75,75" id="svg_6"></path>
+  <path transform="rotate(90, 57.8925, 50.2519)" fill="#00ffff" stroke="none" d="m44.83592,50.25187l13.05661,-13.05663l13.05661,13.05663l-13.05661,13.05662l-13.05661,-13.05662z" id="svg_2"></path>
+  <path id="svg_4" d="m-15,-35l75,85l-75,75" stroke-width="3" stroke="#00ffff" fill="none"></path>
+ </g>
+</svg></svg></li>
+		<li class="tool_button" id="linejoin_round" title="Linejoin: Round"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <lineargradient y2="1" x2="0.2" y1="1" x1="0.8" id="xsvg_8630">
+   <stop stop-opacity="1" stop-color="#000000" offset="0"></stop>
+   <stop stop-opacity="0" stop-color="#000000" offset="1"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <path stroke-linejoin="round" fill="none" stroke="url(#xsvg_8630)" stroke-width="49" d="m-15,-35l75,85l-75,75" id="svg_6"></path>
+  <path transform="rotate(90, 57.8925, 50.2519)" fill="#00ffff" stroke="none" d="m44.83592,50.25187l13.05661,-13.05663l13.05661,13.05663l-13.05661,13.05662l-13.05661,-13.05662z" id="svg_2"></path>
+  <path id="svg_4" d="m-15,-35l75,85l-75,75" stroke-width="3" stroke="#00ffff" fill="none"></path>
+ </g>
+</svg></svg></li>
+		<li class="tool_button" id="linejoin_bevel" title="Linejoin: Bevel"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <lineargradient y2="1" x2="0.2" y1="1" x1="0.8" id="xsvg_8620">
+   <stop stop-opacity="1" stop-color="#000000" offset="0"></stop>
+   <stop stop-opacity="0" stop-color="#000000" offset="1"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <path stroke-linejoin="bevel" fill="none" stroke="url(#xsvg_8620)" stroke-width="49" d="m-15,-35l75,85l-75,75" id="svg_6"></path>
+  <path transform="rotate(90, 57.8925, 50.2519)" fill="#00ffff" stroke="none" d="m44.83592,50.25187l13.05661,-13.05663l13.05661,13.05663l-13.05661,13.05662l-13.05661,-13.05662z" id="svg_2"></path>
+  <path id="svg_4" d="m-15,-35l75,85l-75,75" stroke-width="3" stroke="#00ffff" fill="none"></path>
+ </g>
+</svg></svg></li>
+	</ul>
+	
+	<ul id="linecap_opts" style="">
+		<li class="tool_button current" id="linecap_butt" title="Linecap: Butt"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <lineargradient id="xxsvg_858010" x1="0.8" y1="1" x2="0.2" y2="1">
+   <stop offset="0" stop-color="#000000" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <rect fill="url(#xxsvg_858010)" stroke="#a0a0a0" stroke-width="2" x="-15.20196" y="43.5974" width="94.8373" height="50.3728" id="svg_3" transform="rotate(-45, 32.2148, 68.7832)"></rect>
+  <path id="svg_1" d="m6.63133,95.07755l59.17514,-59.17514" stroke-width="3" stroke="#00ffff" fill="none"></path>
+  <path id="svg_2" d="m51.62893,36.10742l13.05662,-13.05662l13.05661,13.05662l-13.05661,13.05662l-13.05662,-13.05662z" stroke="none" fill="#00ffff"></path>
+ </g>
+</svg></svg></li>
+		<li class="tool_button" id="linecap_square" title="Linecap: Square"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <lineargradient id="xsvg_8590" x1="0.8" y1="1" x2="0.2" y2="1">
+   <stop offset="0" stop-color="#000000" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <rect fill="url(#xsvg_8590)" stroke="none" x="-18.51568" y="35.5974" width="117.46469" height="50.3728" id="svg_3" transform="rotate(-45, 40.2168, 60.7832)"></rect>
+  <path id="svg_1" d="m6.63133,95.07755l59.17514,-59.17514" stroke-width="3" stroke="#00ffff" fill="none"></path>
+  <path id="svg_2" d="m51.62893,36.10742l13.05662,-13.05662l13.05661,13.05662l-13.05661,13.05662l-13.05662,-13.05662z" stroke="none" fill="#00ffff"></path>
+ </g>
+</svg></svg></li>
+		<li class="tool_button" id="linecap_round" title="Linecap: Round"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <lineargradient y2="1" x2="0.2" y1="1" x1="0.8" id="xsvg_8600">
+   <stop stop-opacity="1" stop-color="#000000" offset="0"></stop>
+   <stop stop-opacity="0" stop-color="#000000" offset="1"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <path transform="rotate(-45, 41.5117, 59.4648)" id="svg_3" d="m-19.0679,34.2946l94.8359,0c36.499,-1.4142 33.67101,48.9569 0,50.3711l-94.8359,0l0,-50.3711z" stroke-width="2" stroke="#a0a0a0" fill="url(#xsvg_8600)"></path>
+  <path id="svg_1" d="m6.63133,95.07755l59.17515,-59.17515" stroke-width="3" stroke="#00ffff" fill="none"></path>
+  <path id="svg_2" d="m51.62893,36.10742l13.05662,-13.05662l13.05661,13.05662l-13.05661,13.05662l-13.05662,-13.05662z" stroke="none" fill="#00ffff"></path>
+ </g>
+</svg></svg></li>
+	</ul>
+	
+	<ul id="position_opts" class="optcols3" style="">
+		<li class="push_button" id="tool_posleft" title="Align Left"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+	  <rect stroke="#606060" fill="#ffffff" id="svg_4" height="7" width="12" y="2.5" x="2.5"></rect>
+	  <rect stroke="none" fill="#c0c0c0" id="svg_5" height="4" width="11" y="4" x="2"></rect>
+	  <rect id="svg_6" stroke="#606060" fill="#ffffff" height="7" width="18" y="12.5" x="2.5"></rect>
+	  <rect id="svg_7" stroke="none" fill="#c0c0c0" height="4" width="17" y="14" x="2"></rect>
+	  <rect stroke="#c15909" fill="#ef9a23" id="svg_2" height="40" width="2" y="-10" x="1.5"></rect>
+	</svg></svg></li>
+		<li class="push_button" id="tool_poscenter" title="Align Center"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+	  <rect x="1.5" y="12.5" width="18" height="7" fill="#c0c0c0" stroke="#606060" id="svg_6"></rect>
+	  <rect x="4.5" y="2.5" width="12" height="7" id="svg_4" fill="#c0c0c0" stroke="#606060"></rect>
+	  <rect x="9.5" y="-10" width="2" height="40" id="svg_2" fill="#ef9a23" stroke="#c15909"></rect>
+	  <rect x="2.5" y="13.5" width="16" height="5" fill="none" stroke="#ffffff" id="svg_7"></rect>
+	  <rect x="5.5" y="3.5" width="10" height="5" id="svg_5" fill="none" stroke="#ffffff"></rect>
+	</svg></svg></li>
+		<li class="push_button" id="tool_posright" title="Align Right"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+	  <rect x="7.5" y="2.5" width="12" height="7" id="svg_4" fill="#ffffff" stroke="#606060"></rect>
+	  <rect x="9" y="4" width="11" height="4" id="svg_5" fill="#c0c0c0" stroke="none"></rect>
+	  <rect x="1.5" y="12.5" width="18" height="7" fill="#ffffff" stroke="#606060" id="svg_6"></rect>
+	  <rect x="3" y="14" width="17" height="4" fill="#c0c0c0" stroke="none" id="svg_7"></rect>
+	  <rect x="18.5" y="-10" width="2" height="40" id="svg_2" fill="#ef9a23" stroke="#c15909"></rect>
+	</svg></svg></li>
+		<li class="push_button" id="tool_postop" title="Align Top"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+	  <g transform="rotate(90, 11, 11)" id="svg_1">
+	   <rect x="2.5" y="3.5" width="12" height="7" id="svg_4" fill="#ffffff" stroke="#606060"></rect>
+	   <rect x="2" y="5" width="11" height="4" id="svg_5" fill="#c0c0c0" stroke="none"></rect>
+	   <rect x="2.5" y="13.5" width="18" height="7" fill="#ffffff" stroke="#606060" id="svg_6"></rect>
+	   <rect x="2" y="15" width="17" height="4" fill="#c0c0c0" stroke="none" id="svg_7"></rect>
+	   <rect x="1.5" y="-9" width="2" height="40" id="svg_2" fill="#ef9a23" stroke="#c15909"></rect>
+	  </g>
+	</svg></svg></li>
+		<li class="push_button" id="tool_posmiddle" title="Align Middle"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+  <g transform="rotate(90, 12, 11.5)" id="svg_1">
+   <rect id="svg_6" stroke="#606060" fill="#c0c0c0" height="7" width="18" y="14" x="3"></rect>
+   <rect stroke="#606060" fill="#c0c0c0" id="svg_4" height="7" width="12" y="4" x="6"></rect>
+   <rect stroke="#c15909" fill="#ef9a23" id="svg_2" height="40" width="2" y="-8.5" x="11"></rect>
+   <rect id="svg_7" stroke="#ffffff" fill="none" height="5" width="16" y="15" x="4"></rect>
+   <rect stroke="#ffffff" fill="none" id="svg_5" height="5" width="10" y="5" x="7"></rect>
+   </g>
+</svg></svg></li>
+		<li class="push_button" id="tool_posbottom" title="Align Bottom"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+  <g transform="rotate(90, 11, 11)" id="svg_1">
+   <rect stroke="#606060" fill="#ffffff" id="svg_4" height="7" width="12" y="2.5" x="7.5"></rect>
+   <rect stroke="none" fill="#c0c0c0" id="svg_5" height="4" width="11" y="4" x="9"></rect>
+   <rect id="svg_6" stroke="#606060" fill="#ffffff" height="7" width="18" y="12.5" x="1.5"></rect>
+   <rect id="svg_7" stroke="none" fill="#c0c0c0" height="4" width="17" y="14" x="3"></rect>
+   <rect stroke="#c15909" fill="#ef9a23" id="svg_2" height="40" width="2" y="-10" x="18.5"></rect>
+   </g>
+</svg></svg></li>
+	</ul>
+<ul id="start_marker_list_opts" class="optcols3" style=""><li id="mkr_start_nomarker" title="No Marker" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-50,0l100,0"></path>
+        </svg></svg></li><li id="mkr_start_leftarrow" title="Left Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-50,0l100,40l-30,-40l30,-40z"></path>
+        </svg></svg></li><li id="mkr_start_rightarrow" title="Right Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m50,0l-100,40l30,-40l-30,-40z"></path>
+        </svg></svg></li><li id="mkr_start_textmarker" title="Text Marker" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+			<text text-anchor="middle" font-family="serif" font-size="120" y="40" x="0" stroke-width="0" stroke="#ff7f00" fill="#ff7f00">T</text>	
+        </svg></svg></li><li id="mkr_start_forwardslash" title="Forward Slash" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-20,50l40,-100"></path>
+        </svg></svg></li><li id="mkr_start_reverseslash" title="Reverse Slash" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-20,-50l40,100"></path>
+        </svg></svg></li><li id="mkr_start_verticalslash" title="Vertical Slash" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m0,-50l0,100"></path>
+        </svg></svg></li><li id="mkr_start_box" title="Box" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-30,-30l0,60l60,0l0,-60z"></path>
+        </svg></svg></li><li id="mkr_start_star" title="Star" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-40,-20l80,0l-70,60l30,-80l30,80z"></path>
+        </svg></svg></li><li id="mkr_start_xmark" title="X" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-30,30l60,-60m0,60l-60,-60"></path>
+        </svg></svg></li><li id="mkr_start_triangle" title="Triangle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="M-30,30 L0,-30 L30,30 Z"></path>
+        </svg></svg></li><li id="mkr_start_mcircle" title="Circle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <circle stroke-width="10" stroke="#ff7f00" fill="#ff7f00" cy="0" cx="0" r="30"></circle>
+        </svg></svg></li><li id="mkr_start_leftarrow_o" title="Open Left Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-50,0l100,40l-30,-40l30,-40z"></path>
+        </svg></svg></li><li id="mkr_start_rightarrow_o" title="Open Right Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m50,0l-100,40l30,-40l-30,-40z"></path>
+        </svg></svg></li><li id="mkr_start_box_o" title="Open Box" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-30,-30l0,60l60,0l0,-60z"></path>
+        </svg></svg></li><li id="mkr_start_star_o" title="Open Star" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-40,-20l80,0l-70,60l30,-80l30,80z"></path>
+        </svg></svg></li><li id="mkr_start_mcircle_o" title="Open Circle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <circle stroke-width="10" stroke="#ff7f00" fill="none" cy="0" cx="0" r="30"></circle>
+        </svg></svg></li><li id="mkr_start_triangle_o" title="Open Triangle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="M-30,30 L0,-30 L30,30 Z"></path>
+        </svg></svg></li></ul><ul id="mid_marker_list_opts" class="optcols3" style=""><li id="mkr_mid_nomarker" title="No Marker" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-50,0l100,0"></path>
+        </svg></svg></li><li id="mkr_mid_leftarrow" title="Left Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-50,0l100,40l-30,-40l30,-40z"></path>
+        </svg></svg></li><li id="mkr_mid_rightarrow" title="Right Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m50,0l-100,40l30,-40l-30,-40z"></path>
+        </svg></svg></li><li id="mkr_mid_textmarker" title="Text Marker" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+			<text text-anchor="middle" font-family="serif" font-size="120" y="40" x="0" stroke-width="0" stroke="#ff7f00" fill="#ff7f00">T</text>	
+        </svg></svg></li><li id="mkr_mid_forwardslash" title="Forward Slash" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-20,50l40,-100"></path>
+        </svg></svg></li><li id="mkr_mid_reverseslash" title="Reverse Slash" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-20,-50l40,100"></path>
+        </svg></svg></li><li id="mkr_mid_verticalslash" title="Vertical Slash" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m0,-50l0,100"></path>
+        </svg></svg></li><li id="mkr_mid_box" title="Box" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-30,-30l0,60l60,0l0,-60z"></path>
+        </svg></svg></li><li id="mkr_mid_star" title="Star" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-40,-20l80,0l-70,60l30,-80l30,80z"></path>
+        </svg></svg></li><li id="mkr_mid_xmark" title="X" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-30,30l60,-60m0,60l-60,-60"></path>
+        </svg></svg></li><li id="mkr_mid_triangle" title="Triangle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="M-30,30 L0,-30 L30,30 Z"></path>
+        </svg></svg></li><li id="mkr_mid_mcircle" title="Circle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <circle stroke-width="10" stroke="#ff7f00" fill="#ff7f00" cy="0" cx="0" r="30"></circle>
+        </svg></svg></li><li id="mkr_mid_leftarrow_o" title="Open Left Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-50,0l100,40l-30,-40l30,-40z"></path>
+        </svg></svg></li><li id="mkr_mid_rightarrow_o" title="Open Right Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m50,0l-100,40l30,-40l-30,-40z"></path>
+        </svg></svg></li><li id="mkr_mid_box_o" title="Open Box" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-30,-30l0,60l60,0l0,-60z"></path>
+        </svg></svg></li><li id="mkr_mid_star_o" title="Open Star" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-40,-20l80,0l-70,60l30,-80l30,80z"></path>
+        </svg></svg></li><li id="mkr_mid_mcircle_o" title="Open Circle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <circle stroke-width="10" stroke="#ff7f00" fill="none" cy="0" cx="0" r="30"></circle>
+        </svg></svg></li><li id="mkr_mid_triangle_o" title="Open Triangle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="M-30,30 L0,-30 L30,30 Z"></path>
+        </svg></svg></li></ul><ul id="end_marker_list_opts" class="optcols3" style=""><li id="mkr_end_nomarker" title="No Marker" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-50,0l100,0"></path>
+        </svg></svg></li><li id="mkr_end_leftarrow" title="Left Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-50,0l100,40l-30,-40l30,-40z"></path>
+        </svg></svg></li><li id="mkr_end_rightarrow" title="Right Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m50,0l-100,40l30,-40l-30,-40z"></path>
+        </svg></svg></li><li id="mkr_end_textmarker" title="Text Marker" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+			<text text-anchor="middle" font-family="serif" font-size="120" y="40" x="0" stroke-width="0" stroke="#ff7f00" fill="#ff7f00">T</text>	
+        </svg></svg></li><li id="mkr_end_forwardslash" title="Forward Slash" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-20,50l40,-100"></path>
+        </svg></svg></li><li id="mkr_end_reverseslash" title="Reverse Slash" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-20,-50l40,100"></path>
+        </svg></svg></li><li id="mkr_end_verticalslash" title="Vertical Slash" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m0,-50l0,100"></path>
+        </svg></svg></li><li id="mkr_end_box" title="Box" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-30,-30l0,60l60,0l0,-60z"></path>
+        </svg></svg></li><li id="mkr_end_star" title="Star" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-40,-20l80,0l-70,60l30,-80l30,80z"></path>
+        </svg></svg></li><li id="mkr_end_xmark" title="X" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="m-30,30l60,-60m0,60l-60,-60"></path>
+        </svg></svg></li><li id="mkr_end_triangle" title="Triangle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="#ff7f00" d="M-30,30 L0,-30 L30,30 Z"></path>
+        </svg></svg></li><li id="mkr_end_mcircle" title="Circle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <circle stroke-width="10" stroke="#ff7f00" fill="#ff7f00" cy="0" cx="0" r="30"></circle>
+        </svg></svg></li><li id="mkr_end_leftarrow_o" title="Open Left Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-50,0l100,40l-30,-40l30,-40z"></path>
+        </svg></svg></li><li id="mkr_end_rightarrow_o" title="Open Right Arrow" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m50,0l-100,40l30,-40l-30,-40z"></path>
+        </svg></svg></li><li id="mkr_end_box_o" title="Open Box" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-30,-30l0,60l60,0l0,-60z"></path>
+        </svg></svg></li><li id="mkr_end_star_o" title="Open Star" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="m-40,-20l80,0l-70,60l30,-80l30,80z"></path>
+        </svg></svg></li><li id="mkr_end_mcircle_o" title="Open Circle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <circle stroke-width="10" stroke="#ff7f00" fill="none" cy="0" cx="0" r="30"></circle>
+        </svg></svg></li><li id="mkr_end_triangle_o" title="Open Triangle" class="tool_button push_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120">
+            <path stroke-width="10" stroke="#ff7f00" fill="none" d="M-30,30 L0,-30 L30,30 Z"></path>
+        </svg></svg></li></ul></div>
+
+
+<!-- hidden divs -->
+<div id="color_picker"></div>
+
+<div class="tools_flyout" id="tools_rect" style="left: 24px; top: 118px;"><div id="tool_rect" title="Rectangle[4]" class="tool_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient y2="1" x2="1" y1="0.10156" x1="0.36328" id="xxsvg_24010">
+   <stop stop-opacity="1" stop-color="#ffffff" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#3b7e9b" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <rect transform="matrix(1, 0, 0, 1, 0, 0)" stroke="#000000" fill="url(#xxsvg_24010)" id="svg_1" height="12" width="20" y="5.5" x="1.5"></rect>
+ </svg></svg></div><div id="tool_square" title="Square[Shift+4]" class="tool_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient id="xsvg_230" x1="0.36328" y1="0.10156" x2="1" y2="1">
+   <stop offset="0" stop-color="#ffffff" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#3b7e9b" stop-opacity="1"></stop>
+  </lineargradient>
+ </defs>
+  <rect x="1.5" y="1.5" width="20" height="20" id="svg_1" fill="url(#xsvg_230)" stroke="#000000"></rect>
+ </svg></svg></div><div id="tool_fhrect" title="Free-Hand Rectangle" class="tool_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+ <defs>
+  <lineargradient y2="1" x2="1" y1="0.10156" x1="0.36328" id="xsvg_250">
+
+   <stop stop-opacity="1" stop-color="#ffffff" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#3b7e9b" offset="1"></stop>
+  </lineargradient>
+  <lineargradient y2="0.3945" x2="0.6132" y1="0.1093" x1="0.3046" id="xsvg_951">
+   <stop stop-opacity="1" stop-color="#f9d225" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#bf5f00" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <rect stroke="#000000" stroke-width="2" fill="url(#xsvg_250)" id="svg_1" height="50" width="50" y="0.75" x="1.25"></rect>
+  <path stroke-width="2" stroke="#000000" fill="url(#xsvg_951)" id="svg_2" d="m31.5,0l-8.75,20.25l0.75,24l16.5,-16.5l6,-12.5"></path>
+  <path stroke-width="2" stroke="#000000" fill="#fce0a9" id="svg_10" d="m39.5,28.5c-2,-9.25 -10.25,-11.75 -17,-7.4375l0.4843,24.4414z"></path>
+  <path id="svg_11" stroke-width="2" stroke="#000000" fill="#000000" d="m26.9318,41.1745c-0.4491,-2.3511 -2.3021,-2.9866 -3.8181,-1.8905l0.1087,6.2126z"></path>
+</svg></svg></div></div><div class="tools_flyout" id="tools_ellipse" style="left: 24px; top: 140px;"><div id="tool_ellipse" title="Ellipse[5]" class="tool_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 54">
+ <defs>
+  <lineargradient y2="1.0" x2="1.0" y1="0.1875" x1="0.171875" id="xxsvg_47010">
+   <stop stop-opacity="1" stop-color="#ffffff" offset="0.0"></stop>
+   <stop stop-opacity="1" stop-color="#ff6666" offset="1.0"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <ellipse stroke-opacity="1" fill-opacity="1" stroke-width="2" stroke="#000000" fill="url(#xxsvg_47010)" id="svg_1" rx="23" ry="15" cy="27" cx="27"></ellipse>
+ </g>
+</svg></svg></div><div id="tool_circle" title="Circle[Shift+5]" class="tool_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 54">
+ <defs>
+  <lineargradient y2="1.0" x2="1.0" y1="0.1875" x1="0.171875" id="xsvg_460">
+   <stop stop-opacity="1" stop-color="#ffffff" offset="0.0"></stop>
+   <stop stop-opacity="1" stop-color="#ff6666" offset="1.0"></stop>
+  </lineargradient>
+ </defs>
+ <g>
+  <circle stroke-opacity="1" fill-opacity="1" stroke-width="2" stroke="#000000" fill="url(#xsvg_460)" id="svg_1" r="23" cy="27" cx="27"></circle>
+ </g>
+</svg></svg></div><div id="tool_fhellipse" title="Free-Hand Ellipse" class="tool_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+ <defs>
+  <lineargradient id="xsvg_980" x1="0.3046" y1="0.1093" x2="0.6132" y2="0.3945">
+   <stop offset="0" stop-color="#f9d225" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#bf5f00" stop-opacity="1"></stop>
+  </lineargradient>
+  <lineargradient id="xsvg_481" x1="0.17188" y1="0.1875" x2="1" y2="1">
+   <stop offset="0" stop-color="#ffffff" stop-opacity="1"></stop>
+   <stop offset="1" stop-color="#ff6666" stop-opacity="1"></stop>
+  </lineargradient>
+ </defs>
+  <ellipse stroke-width="2" stroke="#000000" fill="url(#xsvg_481)" id="svg_1" rx="23" ry="12" cy="37" cx="27"></ellipse>
+  <path d="m31.5,0l-8.75,20.25l0.75,24l16.5,-16.5l6,-12.5" id="svg_2" fill="url(#xsvg_980)" stroke="#000000" stroke-width="2"></path>
+  <path d="m39.5,28.5c-2,-9.25 -10.25,-11.75 -17,-7.4375l0.4843,24.4414z" id="svg_10" fill="#fce0a9" stroke="#000000" stroke-width="2"></path>
+  <path d="m26.9318,41.1745c-0.4491,-2.3511 -2.3021,-2.9866 -3.8181,-1.8905l0.1087,6.2126z" fill="#000000" stroke="#000000" stroke-width="2" id="svg_11"></path>
+ </svg></svg></div></div><div class="tools_flyout" id="tools_line" style="left: 24px; top: 96px;"><div class="tool_button" id="tool_line" title="Line Tool [3]"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	 <defs>
+	  <lineargradient id="xsvg_16100" x1="0.46484" y1="0.15625" x2="0.9375" y2="0.39453">
+	   <stop offset="0" stop-color="#f2feff" stop-opacity="1"></stop>
+	   <stop offset="1" stop-color="#14609b" stop-opacity="1"></stop>
+	  </lineargradient>
+	  <lineargradient id="xsvg_19101" x1="0.18359" y1="0.26172" x2="0.77734" y2="0.56641">
+	   <stop offset="0" stop-color="#ffffff" stop-opacity="1"></stop>
+	   <stop offset="1" stop-color="#fce564" stop-opacity="1"></stop>
+	  </lineargradient>
+	 </defs>
+	  <line x1="0.99844" y1="1.49067" x2="12.97691" y2="21.14149" id="svg_5" stroke="#000000" fill="none"></line>
+	  <path d="m14.05272,13.68732l-1.46451,7.52632l4.03769,-6.32571" id="svg_6" fill="#a0a0a0" stroke="#000000"></path>
+	  <path d="m13.61215,10.26563c-0.38567,1.05257 -0.60723,2.40261 -0.50403,3.125l4.33468,1.81452c0.46153,-0.30769 1.6129,-1.71371 1.6129,-2.52016" id="svg_7" fill="url(#xsvg_19101)" stroke="#000000"></path>
+	  <path d="m16.61335,1.00028l-3.67325,8.60247l7.10285,3.47318l3.17783,-7.20549" id="svg_8" fill="url(#xsvg_16100)" stroke="#000000"></path>
+	</svg></svg></div><div id="mode_connect" title="Connect two objects [Shift+3]" class="tool_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+		 <defs>
+
+		  <line stroke-width="5" fill="none" stroke="#000000" id="xsvg_200" y2="121" x2="136" y1="7" x1="136">
+		   <stop stop-opacity="1" stop-color="#4687a0"></stop>
+		   <stop stop-opacity="1" stop-color="#ffffff"></stop>
+		  </line>
+		  <lineargradient y2="0.18359" x2="0.29688" y1="0.92188" x1="0.62109" id="xsvg_301">
+		   <stop stop-opacity="1" stop-color="#417dad" offset="0"></stop>
+		   <stop stop-opacity="1" stop-color="#ffffff" offset="1"></stop>
+		  </lineargradient>
+		 </defs>
+		 <g>
+		  <title>Layer 1</title>
+		  <line x1="5.64676" y1="5.60056" x2="18.50037" y2="18.62557" id="svg_5" stroke="#000000" fill="none"></line>
+		  <rect opacity="0.75" stroke-width="0.5" x="0.5" y="0.5" width="9.625" height="5.125" id="svg_1" fill="url(#xsvg_301)" stroke="#000000"></rect>
+		  <rect opacity="0.75" id="svg_4" stroke-width="0.5" x="13.75" y="18.25" width="9.625" height="5.125" fill="url(#xsvg_301)" stroke="#000000"></rect>
+		  <g id="svg_9">
+		   <path d="m14.57119,9.12143l-0.98244,5.18852l2.70861,-4.36084" id="svg_6" fill="#a0a0a0" stroke="#000000"></path>
+		   <path d="m14.27564,6.76258c-0.25872,0.72562 -0.40735,1.65632 -0.33812,2.15432l2.90784,1.2509c0.30961,-0.21212 1.08198,-1.1814 1.08198,-1.73736" id="svg_7" fill="url(#xsvg_301)" stroke="#000000"></path>
+		   <path d="m16.28893,0.37519l-2.46413,5.9304l4.76481,2.39435l2.13178,-4.96735" id="svg_8" fill="url(#xsvg_301)" stroke="#000000"></path>
+		  </g>
+		 </g>
+		</svg></svg></div></div></div> <!-- svg_editor -->
+
+<div id="svg_source_editor">
+	<div id="svg_source_overlay"></div>
+	<div id="svg_source_container">
+		<div id="tool_source_back" class="toolbar_button">
+			<button id="tool_source_save"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	 <defs>
+	  <lineargradient y2="0.65625" x2="0.94141" y1="0.43359" x1="0.42969" id="xsvg_106660">
+	   <stop stop-opacity="1" stop-color="#38ff45" offset="0"></stop>
+	   <stop stop-opacity="1" stop-color="#127c0c" offset="1"></stop>
+	  </lineargradient>
+	 </defs>
+	  <path transform="rotate(45, 12, 10)" stroke="#005500" fill="url(#xsvg_106660)" id="svg_101" d="m7.9,15.9l4.9,-0.05l0,-13.75l3.8,0l0,17.6l-8.7,0l0,-3.8z"></path>
+	</svg></svg>Apply Changes</button>
+			<button id="tool_source_cancel"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient y2="0.65625" x2="0.94141" y1="0.43359" x1="0.42969" id="xsvg_9670">
+   <stop stop-opacity="1" stop-color="#ff3838" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#7a0c0c" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <path stroke="#550000" fill="url(#xsvg_9670)" id="svg_101" d="m2.10526,10.52632l7.36842,0l0,-7.36842l3.68421,0l0,7.36842l7.36842,0l0,3.68421l-7.36842,0l0,7.36842l-3.68421,0l0,-7.36842l-7.36842,0l0,-3.68421z" transform="rotate(45, 11.3, 12.3)"></path>
+ </svg></svg>Cancel</button>
+		</div>
+		<form>
+			<textarea id="svg_source_textarea" spellcheck="false"></textarea>
+		</form>
+	</div>
+</div>
+
+<div id="svg_docprops">
+	<div id="svg_docprops_overlay"></div>
+	<div id="svg_docprops_container" class="ui-draggable">
+		<div id="tool_docprops_back" class="toolbar_button">
+			<button id="tool_docprops_save"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	 <defs>
+	  <lineargradient y2="0.65625" x2="0.94141" y1="0.43359" x1="0.42969" id="xxsvg_10666010">
+	   <stop stop-opacity="1" stop-color="#38ff45" offset="0"></stop>
+	   <stop stop-opacity="1" stop-color="#127c0c" offset="1"></stop>
+	  </lineargradient>
+	 </defs>
+	  <path transform="rotate(45, 12, 10)" stroke="#005500" fill="url(#xxsvg_10666010)" id="svg_101" d="m7.9,15.9l4.9,-0.05l0,-13.75l3.8,0l0,17.6l-8.7,0l0,-3.8z"></path>
+	</svg></svg>OK</button>
+			<button id="tool_docprops_cancel"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+ <defs>
+  <lineargradient y2="0.65625" x2="0.94141" y1="0.43359" x1="0.42969" id="xxsvg_967010">
+   <stop stop-opacity="1" stop-color="#ff3838" offset="0"></stop>
+   <stop stop-opacity="1" stop-color="#7a0c0c" offset="1"></stop>
+  </lineargradient>
+ </defs>
+  <path stroke="#550000" fill="url(#xxsvg_967010)" id="svg_101" d="m2.10526,10.52632l7.36842,0l0,-7.36842l3.68421,0l0,7.36842l7.36842,0l0,3.68421l-7.36842,0l0,7.36842l-3.68421,0l0,-7.36842l-7.36842,0l0,-3.68421z" transform="rotate(45, 11.3, 12.3)"></path>
+ </svg></svg>Cancel</button>
+		</div>
+
+
+		<fieldset id="svg_docprops_docprops">
+			<legend id="svginfo_image_props">Image Properties</legend>
+			<label>
+				<span id="svginfo_title">Title:</span>
+				<input type="text" id="canvas_title" size="24" autocomplete="off">
+			</label>			
+	
+			<fieldset id="change_resolution">
+				<legend id="svginfo_dim">Canvas Dimensions</legend>
+
+				<label><span id="svginfo_width">width:</span> <input type="text" id="canvas_width" size="6" autocomplete="off"></label>
+					
+				<label><span id="svginfo_height">height:</span> <input type="text" id="canvas_height" size="6" autocomplete="off"></label>
+				
+				<label>
+					<select id="resolution" autocomplete="off">
+						<option id="selectedPredefined" selected="selected">Select predefined:</option>
+						<option>640x480</option>
+						<option>800x600</option>
+						<option>1024x768</option>
+						<option>1280x960</option>
+						<option>1600x1200</option>
+						<option id="fitToContent" value="content">Fit to Content</option>
+					</select>
+				</label>
+			</fieldset>
+
+			<fieldset id="image_save_opts">
+				<legend id="includedImages">Included Images</legend>
+				<label><input type="radio" name="image_opt" value="embed" checked="checked" autocomplete="off"> <span id="image_opt_embed">Embed data (local files)</span> </label>
+				<label><input type="radio" name="image_opt" value="ref" autocomplete="off"> <span id="image_opt_ref">Use file reference</span> </label>
+			</fieldset>			
+
+
+		</fieldset>
+
+		<fieldset id="svg_docprops_prefs">
+			<legend id="svginfo_editor_prefs">Editor Preferences</legend>
+
+			<label><span id="svginfo_lang">Language:</span>
+				<!-- Source: http://en.wikipedia.org/wiki/Language_names -->
+				<select id="lang_select" autocomplete="off">
+				  <option id="lang_ar" value="ar">العربية</option>
+					<option id="lang_cs" value="cs">Čeština</option>
+					<option id="lang_de" value="de">Deutsch</option>
+					<option id="lang_en" value="en" selected="selected">English</option>
+					<option id="lang_es" value="es">Español</option>
+					<option id="lang_fa" value="fa">فارسی</option>
+					<option id="lang_fr" value="fr">Français</option>
+					<option id="lang_fy" value="fy">Frysk</option>
+					<option id="lang_hi" value="hi">हिन्दी, हिंदी</option>
+					<option id="lang_ja" value="ja">日本語</option>
+					<option id="lang_nl" value="nl">Nederlands</option>
+					<option id="lang_pt-BR" value="pt-BR">Português (BR)</option>
+					<option id="lang_ro" value="ro">Româneşte</option>
+					<option id="lang_ru" value="ru">Русский</option>
+					<option id="lang_sk" value="sk">Slovenčina</option>
+					<option id="lang_zh-TW" value="zh-TW">繁體中文</option>
+				</select>
+			</label>
+
+			<label><span id="svginfo_icons">Icon size:</span>
+				<select id="iconsize" autocomplete="off">
+					<option id="icon_small" value="s">Small</option>
+					<option id="icon_medium" value="m" selected="selected">Medium</option>
+					<option id="icon_large" value="l">Large</option>
+					<option id="icon_xlarge" value="xl">Extra Large</option>
+				</select>
+			</label>
+
+			<fieldset id="change_background">
+				<legend id="svginfo_change_background">Editor Background</legend>
+				<div id="bg_blocks"><div class="color_block" style="background-color:#FFF;"></div><div class="color_block" style="background-color:#888;"></div><div class="color_block" style="background-color:#000;"></div></div>
+				<label><span id="svginfo_bg_url">URL:</span> <input type="text" id="canvas_bg_url" size="21" autocomplete="off"></label>
+				<p id="svginfo_bg_note">Note: Background will not be saved with image.</p>
+			</fieldset>
+			
+		</fieldset>
+
+	</div>
+</div>
+
+<div id="dialog_box">
+	<div id="dialog_box_overlay"></div>
+	<div id="dialog_container" class="ui-draggable">
+		<div id="dialog_content"></div>
+		<div id="dialog_buttons"></div>
+	</div>
+</div>
+
+
+
+<iframe name="output_frame" src="svg-editor.html" style="display: none;"></iframe></body></html>

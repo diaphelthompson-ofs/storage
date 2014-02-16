@@ -1,0 +1,87 @@
+<!doctype html>
+<head>
+<title>JIRA Batch Uploader</title>
+
+<script>
+    function newPopup(url) {
+    popupWindow = window.open(       
+    url,'popUpWindow','height=350,width=500,left=300,top=150,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes')
+    }
+
+</script>
+
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='datepicker.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='prettify.css') }}">
+
+
+
+</head>
+
+<body>
+<div class="span6">
+<div class="container-fluid">
+    <fieldset>
+        <table>
+        <form action="" method="post" name="login">
+    <p>
+       First Name<br>
+        <input type="text" name="first_name"><br>
+    </p>
+    <p>
+        Last Name<br>
+        <input type="text" name="last_name"><br>
+    </p>
+    <p>
+        Phone Number<br>
+        <input type="text" name="phone"><br>
+    </p>
+    <p>
+        Email Address<br>
+        <input type="text" name="email"><br>
+    </p>
+       <p>
+        Password<br>
+        <input type="password" name="password"><br>
+    </p>
+    <p><input name = "button" type="submit" value="create_account"></p>
+    </form>
+        </table>
+        </div>
+        <div id="menu" style="float:left; width:200px;height:500px">
+        <h1><center>Menu</center></h1>
+        
+        <p></p>
+        </div>
+    </fieldset>
+</div>
+</div>
+
+<div class="container-fluid">
+    <fieldset>
+        <table>
+        <form action="" method="post" name="login">
+    <p>
+        Email Address<br>
+        <input type="text" name="email"><br>
+    </p>
+       <p>
+        Password<br>
+        <input type="password" name="password"><br>
+    </p>
+    <p><input name = "button" type="submit" value="login" action = "/index"></p>
+    </form>
+        </table>
+        </div>
+        <div id="menu" style="float:left; width:200px;height:500px">
+        <h1><center>Menu</center></h1>
+        
+        <p></p>
+    </div>
+
+
+
+
+</body>
+
+
